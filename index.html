@@ -5,111 +5,72 @@
 <title>RATACALVA</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #1f7a3a, #2e8b57);
     color: white;
+    background: url("fondo.png"); /* ← fondo del PDF */
+    background-size: cover;
 }
 
 /* NAV */
 nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background: #14532d;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 30px;
-    z-index: 1000;
-}
-
-nav h2 {
-    font-size: 24px;
+    background: rgba(0,0,0,0.6);
+    padding: 15px;
+    text-align: center;
 }
 
 nav a {
     color: white;
-    margin-left: 20px;
+    margin: 15px;
     text-decoration: none;
 }
 
 /* HERO */
 .hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
-
-    background: url("fondo.png");
-    background-size: cover;
+    padding: 80px;
 }
 
-.hero h1 {
-    font-size: 60px;
-}
-
-.hero p {
-    font-size: 20px;
+.logo {
+    width: 200px;
 }
 
 /* SECCIONES */
 section {
-    padding: 80px 40px;
+    padding: 50px;
+    background: rgba(0,0,0,0.5);
+    margin: 20px;
+    border-radius: 20px;
 }
 
 /* PRODUCTOS */
 .productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .producto {
-    background: #14532d;
+    width: 250px;
+    background: #1f7a3a;
+    padding: 15px;
     border-radius: 15px;
-    padding: 20px;
     text-align: center;
-    transition: 0.3s;
-}
-
-.producto:hover {
-    transform: scale(1.05);
 }
 
 .producto img {
     width: 100%;
-    border-radius: 10px;
 }
 
+/* BOTÓN */
 button {
-    margin-top: 10px;
     padding: 10px;
-    border: none;
-    background: #2e8b57;
+    background: black;
     color: white;
+    border: none;
     cursor: pointer;
-}
-
-/* OFERTAS */
-.ofertas {
-    background: #14532d;
-    border-radius: 20px;
-    padding: 30px;
-}
-
-/* CONTACTO */
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
 }
 
 /* CARRITO */
@@ -117,25 +78,12 @@ input, textarea {
     position: fixed;
     right: 0;
     top: 0;
-    width: 300px;
+    background: black;
+    width: 250px;
     height: 100%;
-    background: #0c3b21;
     padding: 20px;
-    overflow-y: auto;
 }
 
-.total {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* RESPONSIVE */
-@media(max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-}
 </style>
 </head>
 
@@ -143,19 +91,17 @@ input, textarea {
 
 <!-- NAV -->
 <nav>
-    <h2>RATACALVA</h2>
-    <div>
-        <a href="#inicio">Inicio</a>
-        <a href="#coleccion">Colección</a>
-        <a href="#ofertas">Ofertas</a>
-        <a href="#contacto">Contacto</a>
-    </div>
+    <a href="#inicio">Inicio</a>
+    <a href="#coleccion">Colección</a>
+    <a href="#ofertas">Ofertas</a>
+    <a href="#contacto">Contacto</a>
 </nav>
 
-<!-- HERO -->
+<!-- INICIO -->
 <div class="hero" id="inicio">
+    <img src="logo.png" class="logo"> <!-- LOGO DEL PDF -->
     <h1>RATACALVA</h1>
-    <p>Camisetas únicas de fútbol sala</p>
+    <p>Camisetas personalizadas de fútbol sala</p>
 </div>
 
 <!-- COLECCIÓN -->
@@ -164,32 +110,36 @@ input, textarea {
 
     <div class="productos">
 
+        <!-- CAMISETA 1 (PDF) -->
         <div class="producto">
-            <img src="camiseta1.jpg">
+            <img src="camiseta1.png">
             <h3>Camiseta Personalizada</h3>
             <p>30€</p>
-            <button onclick="add('Camiseta',30)">Añadir</button>
+            <button onclick="add('Camiseta Personalizada',30)">Añadir</button>
         </div>
 
+        <!-- CAMISETA 2 -->
         <div class="producto">
-            <img src="camiseta2.jpg">
-            <h3>Camiseta Pro</h3>
-            <p>40€</p>
-            <button onclick="add('Pro',40)">Añadir</button>
+            <img src="camiseta2.png">
+            <h3>Camiseta Nombre y Número</h3>
+            <p>35€</p>
+            <button onclick="add('Camiseta Nombre',35)">Añadir</button>
         </div>
 
+        <!-- CAMISETA 3 -->
         <div class="producto">
-            <img src="camiseta3.jpg">
+            <img src="camiseta3.png">
             <h3>Camiseta Equipo</h3>
             <p>25€</p>
-            <button onclick="add('Equipo',25)">Añadir</button>
+            <button onclick="add('Camiseta Equipo',25)">Añadir</button>
         </div>
 
+        <!-- CAMISETA 4 -->
         <div class="producto">
-            <img src="camiseta4.jpg">
+            <img src="camiseta4.png">
             <h3>Camiseta Premium</h3>
             <p>45€</p>
-            <button onclick="add('Premium',45)">Añadir</button>
+            <button onclick="add('Camiseta Premium',45)">Añadir</button>
         </div>
 
     </div>
@@ -199,20 +149,18 @@ input, textarea {
 <section id="ofertas">
     <h2>Ofertas</h2>
 
-    <div class="ofertas">
-        <p>⚽ Descuento para equipos completos</p>
-        <p>🎽 Packs de equipación</p>
-        <p>🏆 Sistema de puntos canjeables</p>
-    </div>
+    <p>✔ Descuentos para equipos completos</p>
+    <p>✔ Packs de equipación</p>
+    <p>✔ Sistema de puntos canjeables</p>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto">
     <h2>Contacto</h2>
 
-    <input type="text" placeholder="Nombre">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Mensaje"></textarea>
+    <input type="text" placeholder="Nombre"><br><br>
+    <input type="email" placeholder="Email"><br><br>
+    <textarea placeholder="Mensaje"></textarea><br><br>
 
     <button>Enviar</button>
 </section>
@@ -221,7 +169,7 @@ input, textarea {
 <div class="carrito">
     <h2>Carrito</h2>
     <ul id="lista"></ul>
-    <div class="total" id="total">Total: 0€</div>
+    <p id="total">Total: 0€</p>
 </div>
 
 <script>
