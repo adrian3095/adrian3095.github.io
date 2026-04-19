@@ -1,441 +1,243 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RATACALVA | Ropa de Futsal</title>
-  <style>
-    :root{
-      --bg:#111111;
-      --bg2:#1a1a1a;
-      --card:#202020;
-      --text:#f4f4f4;
-      --muted:#c9c9c9;
-      --accent:#f2c200;
-      --accent2:#ffd84d;
-      --line:#333;
+<meta charset="UTF-8">
+<title>RATACALVA</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1f7a3a, #2e8b57);
+    color: white;
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #14532d;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    z-index: 1000;
+}
+
+nav h2 {
+    font-size: 24px;
+}
+
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background: url("fondo.png");
+    background-size: cover;
+}
+
+.hero h1 {
+    font-size: 60px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+/* SECCIONES */
+section {
+    padding: 80px 40px;
+}
+
+/* PRODUCTOS */
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.producto {
+    background: #14532d;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.producto:hover {
+    transform: scale(1.05);
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    border: none;
+    background: #2e8b57;
+    color: white;
+    cursor: pointer;
+}
+
+/* OFERTAS */
+.ofertas {
+    background: #14532d;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+/* CONTACTO */
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+/* CARRITO */
+.carrito {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: #0c3b21;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.total {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media(max-width: 768px) {
+    nav {
+        flex-direction: column;
     }
-
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{
-      font-family:Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at top, rgba(242,194,0,.12), transparent 30%),
-        linear-gradient(180deg, #0f0f0f, #171717 50%, #0f0f0f);
-      color:var(--text);
-    }
-
-    header{
-      position:sticky; top:0; z-index:1000;
-      background:rgba(12,12,12,.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--line);
-      padding:18px 36px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .brand{
-      display:flex; align-items:center; gap:14px;
-    }
-
-    .brand img{
-      width:58px; height:58px; object-fit:contain;
-      background:#fff; border-radius:14px; padding:6px;
-      box-shadow:0 0 0 2px rgba(242,194,0,.18);
-    }
-
-    .brand h1{
-      font-size:1.5rem;
-      letter-spacing:2px;
-      color:var(--accent);
-    }
-
-    nav a{
-      color:var(--text);
-      text-decoration:none;
-      margin-left:18px;
-      font-weight:bold;
-      font-size:.95rem;
-    }
-
-    nav a:hover{color:var(--accent)}
-
-    .hero{
-      min-height:88vh;
-      display:flex;
-      align-items:center;
-      padding:70px 36px;
-      background:
-        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.62)),
-        url('https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1600&q=80') center/cover;
-      border-bottom:1px solid var(--line);
-    }
-
-    .hero-box{
-      max-width:760px;
-      padding:34px;
-      background:rgba(15,15,15,.72);
-      border:1px solid rgba(242,194,0,.18);
-      border-radius:24px;
-    }
-
-    .hero h2{
-      font-size:3.4rem;
-      line-height:1.05;
-      margin-bottom:18px;
-    }
-
-    .hero p{
-      color:var(--muted);
-      font-size:1.08rem;
-      margin-bottom:24px;
-      max-width:640px;
-    }
-
-    .btn{
-      display:inline-block;
-      background:var(--accent);
-      color:#111;
-      text-decoration:none;
-      padding:13px 22px;
-      border-radius:10px;
-      font-weight:bold;
-      transition:.25s;
-      border:none;
-      cursor:pointer;
-    }
-
-    .btn:hover{transform:translateY(-2px); background:var(--accent2)}
-
-    section{padding:76px 36px}
-
-    .title{
-      text-align:center;
-      font-size:2.2rem;
-      margin-bottom:18px;
-      color:var(--accent);
-    }
-
-    .subtitle{
-      text-align:center;
-      color:var(--muted);
-      max-width:820px;
-      margin:0 auto 34px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:22px;
-      max-width:1200px;
-      margin:0 auto;
-    }
-
-    .card{
-      background:linear-gradient(180deg, var(--card), #181818);
-      border:1px solid var(--line);
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 8px 24px rgba(0,0,0,.25);
-    }
-
-    .card img{
-      width:100%;
-      height:280px;
-      object-fit:cover;
-      background:#fff;
-    }
-
-    .card .content{
-      padding:18px;
-    }
-
-    .card h3{
-      margin-bottom:8px;
-      font-size:1.15rem;
-    }
-
-    .card p{
-      color:var(--muted);
-      margin-bottom:10px;
-      font-size:.96rem;
-    }
-
-    .price{
-      color:var(--accent);
-      font-weight:bold;
-      font-size:1.15rem;
-      margin:10px 0 16px;
-    }
-
-    .badge{
-      display:inline-block;
-      padding:6px 10px;
-      border-radius:999px;
-      background:rgba(242,194,0,.12);
-      color:var(--accent);
-      font-size:.82rem;
-      margin-bottom:10px;
-      border:1px solid rgba(242,194,0,.18);
-    }
-
-    .offers{
-      background:linear-gradient(180deg, #0d0d0d, #171717);
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-    }
-
-    .offer-wrap{
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:18px;
-    }
-
-    .offer{
-      background:#1c1c1c;
-      border:1px solid rgba(242,194,0,.18);
-      border-radius:18px;
-      padding:22px;
-    }
-
-    .offer h3{color:var(--accent); margin-bottom:10px}
-    .offer p{color:var(--muted)}
-
-    .contact-box,
-    .cart-box{
-      max-width:860px;
-      margin:0 auto;
-      background:linear-gradient(180deg, #1a1a1a, #141414);
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:26px;
-    }
-
-    .contact-box form{
-      display:grid;
-      gap:14px;
-      margin-top:16px;
-    }
-
-    input, textarea, select{
-      width:100%;
-      padding:13px 14px;
-      border-radius:10px;
-      border:1px solid #404040;
-      background:#0f0f0f;
-      color:var(--text);
-      outline:none;
-    }
-
-    input:focus, textarea:focus, select:focus{
-      border-color:var(--accent);
-    }
-
-    .cart-item{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding:14px 0;
-      border-bottom:1px solid var(--line);
-      color:var(--muted);
-    }
-
-    .cart-total{
-      display:flex;
-      justify-content:space-between;
-      font-size:1.1rem;
-      font-weight:bold;
-      color:var(--text);
-      padding-top:16px;
-    }
-
-    footer{
-      text-align:center;
-      padding:28px 18px;
-      color:#bdbdbd;
-      border-top:1px solid var(--line);
-      background:#0f0f0f;
-    }
-
-    @media (max-width: 768px){
-      header{
-        padding:14px 16px;
-        flex-direction:column;
-        gap:12px;
-      }
-      nav{
-        display:flex;
-        flex-wrap:wrap;
-        justify-content:center;
-      }
-      nav a{margin:6px 10px}
-      .hero{padding:42px 16px}
-      .hero h2{font-size:2.2rem}
-      section{padding:58px 16px}
-    }
-  </style>
+}
+</style>
 </head>
+
 <body>
 
-  <header>
-    <div class="brand">
-      <img src="https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3dc16646f321aee8bf2b96f0566d703253ffbc3e.jpg" alt="Logo Ratacalva">
-      <h1>RATACALVA</h1>
+<!-- NAV -->
+<nav>
+    <h2>RATACALVA</h2>
+    <div>
+        <a href="#inicio">Inicio</a>
+        <a href="#coleccion">Colección</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#contacto">Contacto</a>
     </div>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#coleccion">Colección</a>
-      <a href="#ofertas">Ofertas</a>
-      <a href="#contacto">Contacto</a>
-      <a href="#carrito">Carrito</a>
-    </nav>
-  </header>
+</nav>
 
-  <section class="hero" id="inicio">
-    <div class="hero-box">
-      <span class="badge">Est. 2023 · Fútbol sala</span>
-      <h2>Ropa personalizada con identidad propia</h2>
-      <p>Ratacalva ofrece camisetas y equipaciones para jugadores y equipos de futsal, con diseños exclusivos, materiales de calidad y precios accesibles sin perder estilo.</p>
-      <a class="btn" href="#coleccion">Explorar colección</a>
-    </div>
-  </section>
+<!-- HERO -->
+<div class="hero" id="inicio">
+    <h1>RATACALVA</h1>
+    <p>Camisetas únicas de fútbol sala</p>
+</div>
 
-  <section id="coleccion">
-    <h2 class="title">Colección</h2>
-    <p class="subtitle">Productos inspirados en el documento: camiseta personalizada, ropa deportiva y prendas similares para completar la tienda.</p>
+<!-- COLECCIÓN -->
+<section id="coleccion">
+    <h2>Colección</h2>
 
-    <div class="grid">
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=900&q=80" alt="Camiseta personalizada">
-        <div class="content">
-          <span class="badge">Producto principal</span>
-          <h3>Camiseta personalizada Ratacalva</h3>
-          <p>Nombre, número, colores y logotipo personalizados. Diseño exclusivo para futsal.</p>
-          <div class="price">25€ - 45€</div>
-          <button class="btn">Añadir al carrito</button>
+    <div class="productos">
+
+        <div class="producto">
+            <img src="camiseta1.jpg">
+            <h3>Camiseta Personalizada</h3>
+            <p>30€</p>
+            <button onclick="add('Camiseta',30)">Añadir</button>
         </div>
-      </article>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=80" alt="Sudadera deportiva">
-        <div class="content">
-          <span class="badge">Similar al documento</span>
-          <h3>Sudadera Team Edition</h3>
-          <p>Perfecta para entrenar, viajar o presentar al equipo con imagen profesional.</p>
-          <div class="price">35€</div>
-          <button class="btn">Añadir al carrito</button>
+        <div class="producto">
+            <img src="camiseta2.jpg">
+            <h3>Camiseta Pro</h3>
+            <p>40€</p>
+            <button onclick="add('Pro',40)">Añadir</button>
         </div>
-      </article>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=80" alt="Chándal deportivo">
-        <div class="content">
-          <span class="badge">Estilo futsal</span>
-          <h3>Chándal Futsal Pro</h3>
-          <p>Con personalidad visual divertida, cómodo y con acabado deportivo.</p>
-          <div class="price">45€</div>
-          <button class="btn">Añadir al carrito</button>
+        <div class="producto">
+            <img src="camiseta3.jpg">
+            <h3>Camiseta Equipo</h3>
+            <p>25€</p>
+            <button onclick="add('Equipo',25)">Añadir</button>
         </div>
-      </article>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=900&q=80" alt="Pantalón deportivo">
-        <div class="content">
-          <span class="badge">Complemento</span>
-          <h3>Pantalón corto training</h3>
-          <p>Ligero, cómodo y pensado para partidos y entrenamientos intensos.</p>
-          <div class="price">18€</div>
-          <button class="btn">Añadir al carrito</button>
+        <div class="producto">
+            <img src="camiseta4.jpg">
+            <h3>Camiseta Premium</h3>
+            <p>45€</p>
+            <button onclick="add('Premium',45)">Añadir</button>
         </div>
-      </article>
 
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80" alt="Zapatillas deportivas">
-        <div class="content">
-          <span class="badge">Producto extra</span>
-          <h3>Zapatillas indoor</h3>
-          <p>Inspiradas en el mundo del fútbol sala y pensadas para rendimiento en pista.</p>
-          <div class="price">55€</div>
-          <button class="btn">Añadir al carrito</button>
-        </div>
-      </article>
     </div>
-  </section>
+</section>
 
-  <section class="offers" id="ofertas">
-    <h2 class="title">Ofertas</h2>
-    <div class="offer-wrap">
-      <div class="offer">
-        <h3>Descuento para equipos</h3>
-        <p>Precios especiales en pedidos múltiples para equipos de fútbol sala y grupos.</p>
-      </div>
-      <div class="offer">
-        <h3>Paquetes de equipación</h3>
-        <p>Combina camiseta, sudadera y pantalón con un precio más económico.</p>
-      </div>
-      <div class="offer">
-        <h3>Puntos canjeables</h3>
-        <p>Acumula puntos con cada compra y cámbialos por descuentos o productos.</p>
-      </div>
-      <div class="offer">
-        <h3>Precio competitivo</h3>
-        <p>Camisetas personalizadas entre 25€ y 45€, manteniendo buena calidad.</p>
-      </div>
+<!-- OFERTAS -->
+<section id="ofertas">
+    <h2>Ofertas</h2>
+
+    <div class="ofertas">
+        <p>⚽ Descuento para equipos completos</p>
+        <p>🎽 Packs de equipación</p>
+        <p>🏆 Sistema de puntos canjeables</p>
     </div>
-  </section>
+</section>
 
-  <section id="contacto">
-    <h2 class="title">Contacto</h2>
-    <p class="subtitle">Escribe tu pedido o pide tu diseño personalizado para tu equipo.</p>
+<!-- CONTACTO -->
+<section id="contacto">
+    <h2>Contacto</h2>
 
-    <div class="contact-box">
-      <form>
-        <input type="text" placeholder="Nombre completo">
-        <input type="email" placeholder="Correo electrónico">
-        <input type="tel" placeholder="Teléfono">
-        <select>
-          <option>Tipo de producto</option>
-          <option>Camiseta personalizada</option>
-          <option>Sudadera</option>
-          <option>Chándal</option>
-          <option>Pack de equipo</option>
-        </select>
-        <textarea rows="5" placeholder="Escribe tu mensaje, talla, colores, nombre y número"></textarea>
-        <button class="btn" type="submit">Enviar mensaje</button>
-      </form>
-    </div>
-  </section>
+    <input type="text" placeholder="Nombre">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Mensaje"></textarea>
 
-  <section id="carrito">
-    <h2 class="title">Carrito</h2>
-    <div class="cart-box">
-      <div class="cart-item">
-        <span>Camiseta personalizada Ratacalva</span>
-        <span>35€</span>
-      </div>
-      <div class="cart-item">
-        <span>Sudadera Team Edition</span>
-        <span>35€</span>
-      </div>
-      <div class="cart-item">
-        <span>Chándal Futsal Pro</span>
-        <span>45€</span>
-      </div>
-      <div class="cart-total">
-        <span>Total</span>
-        <span>115€</span>
-      </div>
-    </div>
-  </section>
+    <button>Enviar</button>
+</section>
 
-  <footer>
-    <p>© 2026 RATACALVA · Ropa personalizada para fútbol sala.</p>
-  </footer>
+<!-- CARRITO -->
+<div class="carrito">
+    <h2>Carrito</h2>
+    <ul id="lista"></ul>
+    <div class="total" id="total">Total: 0€</div>
+</div>
+
+<script>
+let total = 0;
+
+function add(nombre, precio) {
+    let lista = document.getElementById("lista");
+
+    let item = document.createElement("li");
+    item.textContent = nombre + " - " + precio + "€";
+    lista.appendChild(item);
+
+    total += precio;
+    document.getElementById("total").textContent = "Total: " + total + "€";
+}
+</script>
 
 </body>
 </html>
