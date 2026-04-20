@@ -1,196 +1,274 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RATACALVA | Especialistas en Futsal</title>
-    <style>
-        /* Estética basada fielmente en el PDF */
-        :root {
-            --verde-ratacalva: #2b7a3c; /* El verde característico del PDF */
-            --blanco-puro: #ffffff;
-        }
+  <meta charset="UTF-8" />
+  <title>Ratacalva - Marca deportiva</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background:#f4f4f4; color:#222; }
+    header { background:#0b7a32; color:#fff; padding:10px 20px; display:flex; align-items:center; justify-content:space-between; }
+    header .logo-area { display:flex; align-items:center; gap:10px; }
+    header img { width:60px; height:60px; border-radius:50%; object-fit:cover; }
+    nav a { color:#fff; margin-left:15px; text-decoration:none; font-weight:bold; }
+    nav a:hover { text-decoration:underline; }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--verde-ratacalva);
-            color: var(--blanco-puro);
-        }
+    .cart-btn {
+      background:#fff;
+      color:#0b7a32;
+      padding:6px 12px;
+      border-radius:4px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    .cart-btn:hover { background:#e2ffe9; }
 
-        /* Fondo con el efecto de hojas de laurel del PDF */
-        .background-pattern {
-            background-image: url('hojas-laurel-blancas.png'); /* Aquí iría la imagen de los laureles del PDF */
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            min-height: 100vh;
-        }
+    main { max-width:1200px; margin:20px auto; padding:0 15px 40px; }
 
-        header {
-            text-align: center;
-            padding: 40px 20px;
-        }
+    section { margin-bottom:40px; }
 
-        .logo-principal {
-            max-width: 300px; /* Tamaño similar al de la página 2 del PDF */
-            margin-bottom: 10px;
-        }
+    h1, h2 { margin-bottom:15px; color:#0b7a32; }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            background: rgba(0,0,0,0.2);
-            padding: 15px;
-            position: sticky;
-            top: 0;
-            backdrop-filter: blur(5px);
-        }
+    .hero {
+      background:#ffffff;
+      padding:20px;
+      border-radius:8px;
+      text-align:center;
+      box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    }
+    .hero p { margin:10px 0; }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
+    .btn-primary {
+      display:inline-block;
+      margin-top:10px;
+      padding:10px 18px;
+      background:#0b7a32;
+      color:#fff;
+      text-decoration:none;
+      border-radius:4px;
+      font-weight:bold;
+    }
+    .btn-primary:hover { background:#095824; }
 
-        /* Secciones */
-        section {
-            padding: 60px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+    .products-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:20px;
+    }
+    .product-card {
+      background:#fff;
+      border-radius:8px;
+      padding:15px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.06);
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .product-card h3 { margin-bottom:8px; }
+    .product-card p { font-size:0.9rem; margin-bottom:8px; }
+    .product-tag {
+      display:inline-block;
+      font-size:0.8rem;
+      padding:3px 8px;
+      border-radius:12px;
+      background:#e2ffe9;
+      color:#0b7a32;
+      margin-bottom:8px;
+    }
+    .add-cart {
+      margin-top:10px;
+      padding:8px 12px;
+      background:#0b7a32;
+      color:#fff;
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+    .add-cart:hover { background:#095824; }
 
-        .card-contenedor {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
+    .offers { background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.06); }
+    .offers ul { margin-left:18px; margin-top:8px; }
 
-        .producto-card {
-            background: white;
-            color: #333;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-        }
+    .contact-form {
+      background:#fff;
+      padding:20px;
+      border-radius:8px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.06);
+      max-width:600px;
+    }
+    .contact-form label { display:block; margin-top:10px; font-weight:bold; }
+    .contact-form input,
+    .contact-form textarea {
+      width:100%;
+      padding:8px;
+      margin-top:4px;
+      border-radius:4px;
+      border:1px solid #ccc;
+      font-family:inherit;
+    }
+    .contact-form button {
+      margin-top:12px;
+      padding:10px 16px;
+      background:#0b7a32;
+      color:#fff;
+      border:none;
+      border-radius:4px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+    .contact-form button:hover { background:#095824; }
 
-        .producto-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
+    footer {
+      background:#0b7a32;
+      color:#fff;
+      text-align:center;
+      padding:12px 10px;
+      font-size:0.85rem;
+    }
 
-        .precio {
-            font-size: 1.5rem;
-            color: var(--verde-ratacalva);
-            font-weight: bold;
-        }
-
-        /* Formulario de contacto */
-        .contacto-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        input, textarea {
-            padding: 12px;
-            border-radius: 5px;
-            border: none;
-        }
-
-        .btn-compra {
-            background: #ffcc00; /* Color llamativo para el carrito/ofertas */
-            color: #000;
-            padding: 15px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
+    html { scroll-behavior:smooth; }
+  </style>
 </head>
 <body>
 
-<div class="background-pattern">
-    <header>
-        <img src="mascota_ratacalva.png" alt="RataCalva Logo" class="logo-principal">
-        <h1>RATACALVA</h1>
-        <p>EST. 2023</p>
-    </header>
+  <!-- CABECERA -->
+  <header>
+    <div class="logo-area">
+      <!-- Sustituye la ruta por tu archivo real -->
+      <img src="ratacalva.jpg" alt="Logo Ratacalva" />
+      <div>
+        <div style="font-size:1.3rem; font-weight:bold;">Ratacalva</div>
+        <div style="font-size:0.85rem;">Marca deportiva · Est. 2023</div>
+      </div>
+    </div>
 
     <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#ofertas">Ofertas</a>
-        <a href="#coleccion">Colección</a>
-        <a href="#contacto">Contacto</a>
-        <a href="#carrito">🛒 Carrito (0)</a>
+      <a href="#inicio">Inicio</a>
+      <a href="#coleccion">Colección</a>
+      <a href="#ofertas">Ofertas</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#carrito" class="cart-btn">Carrito (0)</a>
     </nav>
+  </header>
 
-    <section id="inicio">
-        <h2>¿Qué es RataCalva?</h2>
-        <p>Somos un servicio que personaliza camisetas para equipos y jugadores de fútbol sala[cite: 27]. Ofrecemos diseños únicos con tu nombre, número y colores[cite: 29].</p>
+  <main>
+    <!-- INICIO -->
+    <section id="inicio" class="hero">
+      <h1>Ratacalva · Ropa deportiva</h1>
+      <p>Ropa técnica y urbana para fútbol, entrenamiento y streetwear, diseñada para que te muevas con estilo dentro y fuera del campo.</p>
+      <p>Explora nuestras colecciones, añade tus productos al carrito y termina el pedido cuando tengas listo tu outfit deportivo.</p>
+      <a href="#coleccion" class="btn-primary">Ver colección</a>
     </section>
 
-    <section id="ofertas">
-        <h2>Ofertas y Promociones</h2>
-        <div class="producto-card" style="background: #fffbe6;">
-            <h3>Pack Equipo Completo</h3>
-            <p>Descuentos especiales para equipos y paquetes de equipación[cite: 62].</p>
-            <p class="precio">¡Consulta tu presupuesto!</p>
-        </div>
-    </section>
-
+    <!-- COLECCIÓN -->
     <section id="coleccion">
-        <h2>Nuestra Colección</h2>
-        <div class="card-contenedor">
-            <div class="producto-card">
-                <img src="camiseta-futsal.jpg" alt="Camiseta">
-                <h3>Camiseta Personalizada</h3>
-                <p>Materiales de alta calidad y personalización total[cite: 30].</p>
-                <p class="precio">25€ - 45€ </p>
-                <button class="btn-compra">Añadir al carrito</button>
-            </div>
-            <div class="producto-card">
-                <img src="pantalon-futsal.jpg" alt="Pantalón">
-                <h3>Pantalón Técnico</h3>
-                <p>Diseño exclusivo para alto rendimiento en pista[cite: 30].</p>
-                <p class="precio">15€</p>
-                <button class="btn-compra">Añadir al carrito</button>
-            </div>
+      <h2>Colección Ratacalva</h2>
+      <p>Estos son algunos productos destacados de la colección. Más adelante podrás añadir tallas, colores y precios según tus necesidades.</p>
+
+      <div class="products-grid">
+        <article class="product-card">
+          <span class="product-tag">Nuevo</span>
+          <h3>Camiseta Técnica Ratacalva</h3>
+          <p>Camiseta ligera y transpirable, ideal para entrenamientos intensos y partidos de fin de semana.</p>
+          <p><strong>Sin precio aún</strong></p>
+          <button class="add-cart">Añadir al carrito</button>
+        </article>
+
+        <article class="product-card">
+          <span class="product-tag">Top Ventas</span>
+          <h3>Sudadera Urban Team</h3>
+          <p>Sudadera cómoda para uso diario, inspirada en el espíritu competitivo de Ratacalva.</p>
+          <p><strong>Sin precio aún</strong></p>
+          <button class="add-cart">Añadir al carrito</button>
+        </article>
+
+        <article class="product-card">
+          <span class="product-tag">Edición limitada</span>
+          <h3>Pantalón Training Pro</h3>
+          <p>Pantalón ajustado para entrenar con libertad de movimiento y máximo rendimiento.</p>
+          <p><strong>Sin precio aún</strong></p>
+          <button class="add-cart">Añadir al carrito</button>
+        </article>
+
+        <article class="product-card">
+          <span class="product-tag">Colección 2026</span>
+          <h3>Chándal Oficial Ratacalva</h3>
+          <p>Conjunto completo con diseño del equipo Ratacalva, perfecto para calentar y viajar.</p>
+          <p><strong>Sin precio aún</strong></p>
+          <button class="add-cart">Añadir al carrito</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section id="ofertas" class="offers">
+      <h2>Ofertas y promociones</h2>
+      <p>Aquí podrás activar tus propias ofertas cuando definas los precios. Puedes usar estas ideas:</p>
+      <ul>
+        <li>Descuento por primera compra al registrarse en la newsletter.</li>
+        <li>Promos 2x1 en camisetas de temporadas anteriores.</li>
+        <li>Packs de chándal + camiseta con precio especial.</li>
+        <li>Rebajas de fin de temporada en toda la colección.</li>
+      </ul>
+    </section>
+
+    <!-- CARRITO -->
+    <section id="carrito">
+      <h2>Carrito de compra</h2>
+      <p>Este es un carrito básico como estructura. Más adelante puedes conectar el carrito con JavaScript o una plataforma de pago.</p>
+
+      <div style="background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.06);">
+        <p><strong>Tu carrito está vacío.</strong></p>
+        <p>Añade productos desde la colección para verlos aquí.</p>
+        <!-- Estructura de tabla para futuro uso -->
+        <table style="width:100%; border-collapse:collapse; margin-top:15px;">
+          <thead>
+            <tr style="background:#e2ffe9;">
+              <th style="border:1px solid #ddd; padding:8px; text-align:left;">Producto</th>
+              <th style="border:1px solid #ddd; padding:8px; text-align:left;">Cantidad</th>
+              <th style="border:1px solid #ddd; padding:8px; text-align:left;">Precio</th>
+              <th style="border:1px solid #ddd; padding:8px; text-align:left;">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí irán las líneas de productos con JavaScript o tu back-end -->
+          </tbody>
+        </table>
+
+        <div style="text-align:right; margin-top:15px;">
+          <p><strong>Total: por definir</strong></p>
+          <button style="margin-top:8px; padding:10px 16px; background:#0b7a32; color:#fff; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">
+            Finalizar compra
+          </button>
         </div>
+      </div>
     </section>
 
+    <!-- CONTACTO -->
     <section id="contacto">
-        <h2>Contacto</h2>
-        <p>¡Crea tu diseño único hoy mismo!</p>
-        <form class="contacto-form">
-            <input type="text" placeholder="Nombre completo" required>
-            <input type="email" placeholder="Email de contacto" required>
-            <textarea placeholder="Cuéntanos tu idea de diseño..." rows="4"></textarea>
-            <button type="submit" class="btn-compra">Enviar Mensaje</button>
-        </form>
-    </section>
+      <h2>Contacto</h2>
+      <p>Si quieres colaborar con Ratacalva, hacer un pedido especial para tu equipo o resolver dudas, rellena el formulario.</p>
 
-    <section id="carrito" style="text-align: center;">
-        <h2>Tu Carrito</h2>
-        <p>Tu selección de equipación aparecerá aquí.</p>
-    </section>
+      <form class="contact-form">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required />
 
-    <footer>
-        <p>Gracias por la atención [cite: 65]</p>
-        <p>RataCalva - Precios accesibles sin perder calidad [cite: 21]</p>
-    </footer>
-</div>
+        <label for="email">Correo electrónico</label>
+        <input id="email" name="email" type="email" placeholder="tucorreo@ejemplo.com" required />
+
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos qué necesitas" required></textarea>
+
+        <button type="submit">Enviar mensaje</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Ratacalva · Marca deportiva. Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>
