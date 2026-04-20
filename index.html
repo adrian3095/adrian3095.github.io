@@ -3,169 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RataCalva | Especialistas en Fútbol Sala</title>
+    <title>RataCalva - Especialistas en Futsal</title>
     <style>
-        /* Estilos Generales basados en la identidad visual */
-        :root {
-            --verde-principal: #38761d; /* Verde oscuro del PDF */
-            --verde-claro: #4fa12b;
-            --blanco: #ffffff;
-            --negro: #1a1a1a;
-            --gris-claro: #f4f4f4;
-        }
-
+        /* Estilos Generales basados en el PDF */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--verde-principal); /* Fondo similar al PDF  */
-            color: var(--blanco);
+            background-color: #ffffff; /* Blanco de fondo secundario */
+            color: #333;
         }
 
         header {
-            background-color: var(--negro);
-            padding: 1rem 5%;
+            background-color: #2e7d32; /* Verde RataCalva */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo-container img {
+            max-width: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        nav {
+            background-color: #1b5e20;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-img {
-            height: 50px;
-            border-radius: 50%;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
-
         nav a {
-            color: var(--blanco);
+            color: white;
             text-decoration: none;
+            margin: 0 15px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 0.9rem;
         }
 
-        /* Sección Inicio */
-        .hero {
-            text-align: center;
+        nav a:hover {
+            color: #a5d6a7;
+        }
+
+        /* Secciones */
+        .section {
             padding: 60px 20px;
-            background: linear-gradient(rgba(56, 118, 29, 0.8), rgba(56, 118, 29, 0.8)), 
-                        url('https://via.placeholder.com/1200x600/38761d/ffffff?text=RATACALVA+EST+2023');
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8)), url('tu-fondo-verde.jpg'); /* Fondo verde del PDF */
             background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
         }
 
-        .hero img {
-            max-width: 250px; /* Imagen de la mascota  */
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin: 10px 0;
-        }
-
-        /* Colección */
-        .section-container {
-            padding: 50px 5%;
-            background-color: var(--blanco);
-            color: var(--negro);
-        }
-
-        .grid-productos {
+        /* Grid de Productos */
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            gap: 20px;
             margin-top: 30px;
         }
 
-        .producto-card {
-            background: var(--gris-claro);
+        .card {
+            border: 1px solid #ddd;
             padding: 15px;
-            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
             transition: transform 0.3s;
         }
 
-        .producto-card:hover {
+        .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .producto-card img {
-            width: 100%;
+        .card img {
+            max-width: 100%;
             height: auto;
-            border-radius: 5px;
+            margin-bottom: 15px;
         }
 
-        .precio {
-            font-size: 1.2rem;
-            color: var(--verde-principal);
+        .price {
+            color: #2e7d32;
             font-weight: bold;
-            margin: 10px 0;
-        }
-
-        /* Botones */
-        .btn {
-            background-color: var(--verde-principal);
-            color: var(--blanco);
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
+            font-size: 1.2em;
         }
 
         /* Ofertas */
-        .ofertas-banner {
-            background-color: var(--verde-claro);
-            color: var(--blanco);
-            padding: 40px;
-            text-align: center;
-            border-radius: 15px;
-            margin: 20px 0;
+        .offers {
+            background-color: #f1f8e9;
+            border-left: 10px solid #2e7d32;
         }
 
-        /* Contacto */
-        .contacto-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 50px;
-        }
-
+        /* Formulario de Contacto */
         form {
-            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
         input, textarea {
-            padding: 12px;
+            margin-bottom: 15px;
+            padding: 10px;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #2e7d32;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        /* Carrito */
+        .cart-section {
+            background-color: #fff;
+            border: 2px dashed #2e7d32;
         }
 
         footer {
-            background: var(--negro);
+            background-color: #333;
+            color: white;
             text-align: center;
             padding: 20px;
-            margin-top: 50px;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -173,91 +147,79 @@
 
     <header>
         <div class="logo-container">
-            <img src="tu-imagen-de-la-mascota.png" alt="Logo RataCalva" class="logo-img">
-            <span>RATACALVA</span>
+            <img src="logo_ratacalva.png" alt="Logo RataCalva">
         </div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#coleccion">Colección</a></li>
-                <li><a href="#ofertas">Ofertas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#carrito">🛒 Carrito</a></li>
-            </ul>
-        </nav>
+        <h1>RATACALVA</h1>
+        <p>Especialistas en Fútbol Sala | Est. 2023</p>
     </header>
 
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#coleccion">Colección</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#carrito">🛒 Carrito</a>
+    </nav>
+
     <section id="inicio" class="hero">
-        <img src="tu-imagen-de-la-mascota.png" alt="Mascota RataCalva"> <h1>RATACALVA</h1>
-        <p>Especializada en Fútbol Sala [cite: 15]</p>
-        <p><em>"Diseños únicos que capturan tu pasión" </em></p>
-        <a href="#coleccion" class="btn">Ver Equipaciones</a>
+        <h2>Personalización Total para tu Equipo</h2>
+        <p>Camisetas únicas que capturan la identidad y la pasión de cada jugador[cite: 31].</p>
+        <p><strong>Diseños exclusivos • Alta calidad • Entrega rápida</strong> [cite: 30]</p>
     </section>
 
-    <section id="coleccion" class="section-container">
-        <h2>NUESTRA COLECCIÓN</h2>
-        <p>Personalización total: nombre, número, colores y logotipo[cite: 29].</p>
-        
-        <div class="grid-productos">
-            <div class="producto-card">
-                <img src="camiseta-futsal.jpg" alt="Camiseta Personalizada">
-                <h3>Camiseta Personalizada Pro</h3>
-                <p>Materiales de alta calidad y entrega rápida[cite: 30].</p>
-                <div class="precio">35,00 €</div> <button class="btn">Añadir al Carrito</button>
-            </div>
+    <section id="ofertas" class="section offers">
+        <h2>Ofertas Especiales</h2>
+        <ul>
+            <li>Descuentos exclusivos para equipos completos.</li>
+            <li>Paquetes de equipación personalizados.</li>
+            <li>Sistema de puntos canjeables por cada compra.</li>
+        </ul>
+    </section>
 
-            <div class="producto-card">
-                <img src="pack-equipo.jpg" alt="Pack Equipo">
-                <h3>Pack Equipación Completa</h3>
-                <p>Diseño exclusivo para todo el equipo[cite: 30].</p>
-                <div class="precio">45,00 €</div> <button class="btn">Añadir al Carrito</button>
+    <section id="coleccion" class="section">
+        <h2>Nuestra Colección</h2>
+        <p>Precios profesionales de 25€ a 45€[cite: 57].</p>
+        <div class="grid">
+            <div class="card">
+                <img src="camiseta_futsal.jpg" alt="Camiseta Personalizada">
+                <h3>Camiseta Oficial</h3>
+                <p>Personalización de nombre, número y colores[cite: 29].</p>
+                <p class="price">Desde 25€</p>
             </div>
-
-            <div class="producto-card">
-                <img src="sudadera-entreno.jpg" alt="Sudadera">
-                <h3>Sudadera Entrenamiento</h3>
-                <p>Estilo profesional y económico[cite: 58].</p>
-                <div class="precio">25,00 €</div> <button class="btn">Añadir al Carrito</button>
+            <div class="card">
+                <img src="pantalon_futsal.jpg" alt="Pantalón Futsal">
+                <h3>Pantalón de Juego</h3>
+                <p>Material de alta calidad para alto rendimiento[cite: 30].</p>
+                <p class="price">Desde 15€</p>
+            </div>
+            <div class="card">
+                <img src="pack_equipo.jpg" alt="Pack Equipo">
+                <h3>Pack Equipo Completo</h3>
+                <p>Diseño de logotipo incluido[cite: 29].</p>
+                <p class="price">Consultar Oferta</p>
             </div>
         </div>
     </section>
 
-    <section id="ofertas" class="section-container" style="background-color: var(--gris-claro);">
-        <div class="ofertas-banner">
-            <h2>OFERTAS ESPECIALES [cite: 62]</h2>
-            <ul style="list-style: none; padding: 0;">
-                <li>🔥 Descuentos especiales para equipos completos.</li>
-                <li>📦 Paquetes de equipación con puntos canjeables.</li>
-                <li>⚽ Calidad profesional a precios accesibles[cite: 58].</li>
-            </ul>
-        </div>
+    <section id="contacto" class="section">
+        <h2>Contacto</h2>
+        <p>¿Quieres un diseño único para tu equipo? ¡Escríbenos!</p>
+        <form>
+            <input type="text" placeholder="Nombre del Equipo/Jugador" required>
+            <input type="email" placeholder="Tu correo electrónico" required>
+            <textarea rows="5" placeholder="Cuéntanos tu idea de diseño..." required></textarea>
+            <button type="submit">Solicitar Presupuesto</button>
+        </form>
     </section>
 
-    <section id="contacto" class="section-container">
-        <h2>CONTACTO</h2>
-        <div class="contacto-flex">
-            <div>
-                <h3>¿Listo para personalizar?</h3>
-                <p>Creamos diseños únicos con tu identidad.</p>
-                <p><strong>Ubicación:</strong> Est. 2023 [cite: 5]</p>
-            </div>
-            <form>
-                <input type="text" placeholder="Tu Nombre" required>
-                <input type="email" placeholder="Tu Email" required>
-                <textarea rows="5" placeholder="Cuéntanos sobre tu diseño o equipo..."></textarea>
-                <button type="submit" class="btn">Enviar Solicitud</button>
-            </form>
-        </div>
-    </section>
-
-    <section id="carrito" class="section-container" style="border-top: 2px solid var(--verde-principal);">
-        <h2>TU CARRITO 🛒</h2>
-        <p>No hay productos seleccionados.</p>
-        <p><em>Inviertes en una camiseta única que refleja tu pasión por el fútbol sala[cite: 63].</em></p>
+    <section id="carrito" class="section cart-section">
+        <h2>Tu Carrito</h2>
+        <p>Actualmente no tienes productos en el carrito. ¡Empieza a personalizar tu equipación!</p>
     </section>
 
     <footer>
-        <p>RATACALVA © 2026 - Gracias por la atención [cite: 65]</p>
+        <p>&copy; 2026 RATACALVA. Marca original con personalidad propia.</p>
+        <p>Gracias por la atención [cite: 65]</p>
     </footer>
 
 </body>
