@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ratacalva FC — Robert's Sport</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" onclick="goTo('inicio')">
+    <img src="img/RataCalva_logo.png" alt="Logo Ratacalva">
+    <span>Robert's</span>
+  </div>
+  <ul class="nav-links">
+    <li><a onclick="goTo('inicio')" data-page="inicio">Inicio</a></li>
+    <li><a onclick="goTo('ofertas')" data-page="ofertas">Ofertas</a></li>
+    <li><a onclick="goTo('coleccion')" data-page="coleccion">Colección</a></li>
+    <li><a onclick="goTo('contacto')" data-page="contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-cart" onclick="toggleCart()">
+      🛒 Carrito <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== INICIO ===== -->
+<div class="page active" id="page-inicio">
+  <div class="hero-section">
+    <div class="hero-badge">⚽ Ratacalva Football Club — Est. 2023</div>
+    <img src="img/RataCalva_logo.png" alt="Logo Ratacalva" class="hero-logo">
+    <h1 class="hero-title">Robert's</h1>
+    <p class="hero-sub">Todo lo que tu equipo necesita</p>
+    <p class="hero-tagline">Equipación oficial · Accesorios · Colección completa</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="goTo('coleccion')">Ver colección</button>
+      <button class="btn-outline" onclick="goTo('ofertas')">Ver ofertas 🔥</button>
+    </div>
+  </div>
+  <div class="features-strip">
+    <div class="feature"><div class="feature-icon">🚚</div><div class="feature-title">Envío gratis</div><div class="feature-sub">En pedidos +50€</div></div>
+    <div class="feature"><div class="feature-icon">⚽</div><div class="feature-title">Calidad oficial</div><div class="feature-sub">Equipación del club</div></div>
+    <div class="feature"><div class="feature-icon">🎨</div><div class="feature-title">Personalizable</div><div class="feature-sub">Nombre y dorsal</div></div>
+    <div class="feature"><div class="feature-icon">↩️</div><div class="feature-title">30 días devolución</div><div class="feature-sub">Sin preguntas</div></div>
+  </div>
+  <footer><p>© 2025 <strong>Ratacalva FC — Robert's Sport</strong> · Castelló de la Plana, España</p></footer>
+</div>
+
+<!-- ===== OFERTAS ===== -->
+<div class="page" id="page-ofertas">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-label">🔥 Descuentos exclusivos</div>
+      <h1 class="page-title">Ofertas Especiales</h1>
+      <p class="page-desc">Los mejores precios de la temporada. ¡Solo por tiempo limitado!</p>
+    </div>
+    <div class="products-grid" id="offersGrid"></div>
+  </div>
+  <footer style="background:rgba(0,0,0,0.3);"><p style="color:rgba(255,255,255,0.4);">© 2025 <strong style="color:rgba(255,255,255,0.7);">Ratacalva FC — Robert's Sport</strong></p></footer>
+</div>
+
+<!-- ===== COLECCIÓN ===== -->
+<div class="page" id="page-coleccion">
+  <div class="page-inner">
+    <div class="page-header">
+      <div class="page-label">Temporada 2024/25</div>
+      <h1 class="page-title">Colección Completa</h1>
+      <p class="page-desc">Toda la equipación oficial de Ratacalva FC. Viste con orgullo.</p>
+    </div>
+    <div class="products-grid" id="allGrid"></div>
+  </div>
+  <footer><p>© 2025 <strong>Ratacalva FC — Robert's Sport</strong> · Castelló de la Plana, España</p></footer>
+</div>
+
+<!-- ===== CONTACTO ===== -->
+<div class="page" id="page-contacto">
+  <div class="contact-page-bg">
+    <div class="contact-box">
+      <div class="page-label" style="color:var(--green-light);">Estamos aquí para ti</div>
+      <h1 class="page-title" style="color:white;">Contacto</h1>
+      <p class="page-desc" style="color:rgba(255,255,255,0.6);margin-bottom:2.5rem;">¿Dudas sobre tu pedido? ¿Quieres personalizar tu equipación? Escríbenos.</p>
+      <div class="contact-grid">
+        <div class="contact-card"><div class="icon">📍</div><h3>Ubicación</h3><p>Castelló de la Plana<br>Valencia, España</p></div>
+        <div class="contact-card"><div class="icon">📧</div><h3>Email</h3><p>info@ratacalvafc.es</p></div>
+        <div class="contact-card"><div class="icon">📱</div><h3>WhatsApp</h3><p>+34 600 000 000</p></div>
+        <div class="contact-card"><div class="icon">🕐</div><h3>Horario</h3><p>Lun–Vie<br>9:00–19:00</p></div>
+      </div>
+      <div class="contact-form">
+        <h3>Envíanos un mensaje</h3>
+        <div class="form-row">
+          <div class="form-group"><label>Nombre</label><input type="text" placeholder="Tu nombre"></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+        </div>
+        <div class="form-group" style="margin-bottom:1rem;"><label>Asunto</label><input type="text" placeholder="¿En qué te podemos ayudar?"></div>
+        <div class="form-group" style="margin-bottom:1rem;"><label>Mensaje</label><textarea placeholder="Escribe tu mensaje aquí..."></textarea></div>
+        <button class="form-submit" onclick="submitForm()">Enviar mensaje ✉️</button>
+      </div>
+    </div>
+  </div>
+  <footer style="background:rgba(0,0,0,0.3);"><p style="color:rgba(255,255,255,0.4);">© 2025 <strong style="color:rgba(255,255,255,0.7);">Ratacalva FC — Robert's Sport</strong></p></footer>
+</div>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>🛒 Tu Carrito</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty"><div class="emoji">🛒</div><p>Tu carrito está vacío.<br>¡Añade productos para empezar!</p></div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price" id="cartTotal">0,00 €</span>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">Comprar ahora →</button>
+  </div>
+</div>
+
+<!-- SUCCESS MODAL -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal-box">
+    <div class="modal-icon">✅</div>
+    <h2 class="modal-title">¡Compra Exitosa!</h2>
+    <p class="modal-text">Tu pedido ha sido procesado correctamente.<br>En breve recibirás un email de confirmación.<br><br>¡Gracias por confiar en <strong>Robert's — Ratacalva FC</strong>! ⚽</p>
+    <button class="modal-close-btn" onclick="closeModal()">¡Perfecto! ⚽</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
