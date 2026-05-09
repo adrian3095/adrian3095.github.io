@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratacalva FC — Tienda Oficial | Robert's</title>
+  <meta name="description" content="Tienda oficial de Ratacalva Football Club. Equipaciones, accesorios y merchandising. Todo lo que tu equipo necesita." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="RataCalva_logo.png" type="image/png" />
+</head>
+<body>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav id="mainNav">
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="RataCalva_logo.png" alt="Ratacalva FC" />
+    <div class="nav-logo-text">
+      <span>RATACALVA</span>
+      <span>Football Club · EST. 2023</span>
+    </div>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#" onclick="showPage('home')" class="active" data-page="home">Inicio</a>
+    <a href="#" onclick="showPage('ofertas')" data-page="ofertas">Ofertas</a>
+    <a href="#" onclick="showPage('coleccion')" data-page="coleccion">Colección</a>
+    <a href="#" onclick="showPage('nosotros')" data-page="nosotros">Nosotros</a>
+    <a href="#" onclick="showPage('contacto')" data-page="contacto">Contacto</a>
+  </div>
+
+  <div class="nav-actions">
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Carrito
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════ PAGE: HOME ══════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Tienda Oficial 2025</p>
+        <h1 class="hero-title">ROBERT'S<br><span>RATACALVA</span></h1>
+        <p class="hero-subtitle">Todo lo que tu equipo necesita</p>
+        <p class="hero-desc">Equipaciones oficiales, accesorios premium y merchandising exclusivo del Ratacalva Football Club. Viste los colores con orgullo.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="showPage('coleccion')">Ver Colección ↗</button>
+          <button class="btn-secondary" onclick="showPage('ofertas')">Ver Ofertas</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Productos</div></div>
+          <div class="stat"><div class="stat-num">EST</div><div class="stat-label">2023</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Oficial</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img src="RataCalva_logo.png" alt="Ratacalva FC Logo" class="hero-logo" />
+          <div class="hero-badge-float b1">🏆 EST. 2023</div>
+          <div class="hero-badge-float b2">⚽ FÚTBOL SALA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-inner" id="stripInner">
+      <div class="strip-item">RATACALVA FC</div>
+      <div class="strip-item">ROBERT'S</div>
+      <div class="strip-item">TODO LO QUE TU EQUIPO NECESITA</div>
+      <div class="strip-item">EST. 2023</div>
+      <div class="strip-item">TIENDA OFICIAL</div>
+      <div class="strip-item">FÚTBOL SALA</div>
+      <div class="strip-item">RATACALVA FC</div>
+      <div class="strip-item">ROBERT'S</div>
+      <div class="strip-item">TODO LO QUE TU EQUIPO NECESITA</div>
+      <div class="strip-item">EST. 2023</div>
+      <div class="strip-item">TIENDA OFICIAL</div>
+      <div class="strip-item">FÚTBOL SALA</div>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <div class="section">
+    <div class="section-header">
+      <p class="section-eyebrow">Más Populares</p>
+      <h2 class="section-title">PRODUCTOS DESTACADOS</h2>
+      <p class="section-sub">La selección favorita de nuestra comunidad</p>
+    </div>
+    <div class="products-grid" id="featuredGrid"></div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <button class="btn-primary" onclick="showPage('coleccion')" style="display:inline-flex;">Ver toda la colección ↗</button>
+    </div>
+  </div>
+
+  <!-- SOBRE LA MARCA STRIP -->
+  <div style="background:var(--black);padding:5rem 2rem;margin:2rem 0;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div>
+        <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Nuestra Historia</p>
+        <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);color:var(--white);letter-spacing:2px;line-height:1;margin-bottom:1.5rem;">EL ALMA DEL<br><span style="color:var(--green)">RATACALVA</span></h2>
+        <p style="color:rgba(248,248,244,.6);line-height:1.9;margin-bottom:1.5rem;">Fundado en 2023, Ratacalva FC nació de la pasión por el fútbol sala y la hermandad entre compañeros. Robert's es nuestra tienda oficial, donde cada producto lleva el espíritu de la rata calva más valiente del campo.</p>
+        <button class="btn-secondary" onclick="showPage('nosotros')" style="display:inline-flex;">Conocer más</button>
+      </div>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:140px;background:rgba(45,122,58,.15);border:1px solid rgba(45,122,58,.3);border-radius:16px;padding:1.5rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--green);">⚽</div>
+          <div style="font-family:var(--font-display);font-size:1.8rem;color:var(--white);margin-top:.5rem;">SALA</div>
+          <div style="font-size:.72rem;color:rgba(248,248,244,.4);letter-spacing:2px;">FÚTBOL</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:rgba(45,122,58,.15);border:1px solid rgba(45,122,58,.3);border-radius:16px;padding:1.5rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--green);">🏆</div>
+          <div style="font-family:var(--font-display);font-size:1.8rem;color:var(--white);margin-top:.5rem;">2023</div>
+          <div style="font-size:.72rem;color:rgba(248,248,244,.4);letter-spacing:2px;">FUNDACIÓN</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:rgba(45,122,58,.15);border:1px solid rgba(45,122,58,.3);border-radius:16px;padding:1.5rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--green);">🐀</div>
+          <div style="font-family:var(--font-display);font-size:1.8rem;color:var(--white);margin-top:.5rem;">CALVA</div>
+          <div style="font-size:.72rem;color:rgba(248,248,244,.4);letter-spacing:2px;">MASCOTA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════ PAGE: OFERTAS ══════════════════════ -->
+<div class="page" id="page-ofertas">
+  <div class="offers-hero" style="padding-top:calc(var(--nav-h) + 3rem);">
+    <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Descuentos exclusivos</p>
+    <h1>OFERTAS ESPECIALES</h1>
+    <p>Aprovecha nuestros mejores precios por tiempo limitado</p>
+  </div>
+
+  <div class="section">
+    <!-- BANNER OFERTA PRINCIPAL -->
+    <div class="offers-banner" style="margin-bottom:2.5rem;">
+      <div class="offer-text">
+        <div style="font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.5rem;">⚡ OFERTA FLASH</div>
+        <h2>PACK JUGADOR COMPLETO</h2>
+        <p>Camiseta + Short + Dorsal personalizado</p>
+        <div class="countdown" id="countdown">
+          <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Horas</div></div>
+          <div class="cd-block"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Min</div></div>
+          <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Seg</div></div>
+        </div>
+      </div>
+      <div class="offer-price">
+        <div class="old">Antes: 79.97€</div>
+        <div class="new">54.99€</div>
+        <button class="btn-primary" style="margin-top:1rem;" onclick="addPackToCart()">Añadir Pack al Carrito</button>
+      </div>
+    </div>
+
+    <!-- GRID DE OFERTAS -->
+    <div style="margin-bottom:2rem;">
+      <div class="section-header" style="text-align:left;margin-bottom:1.5rem;">
+        <p class="section-eyebrow">Productos en Oferta</p>
+        <h2 class="section-title" style="font-size:2rem;">TODOS LOS DESCUENTOS</h2>
+      </div>
+    </div>
+    <div class="products-grid" id="offersGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: COLECCIÓN ══════════════════════ -->
+<div class="page" id="page-coleccion">
+  <div class="collection-hero">
+    <div class="collection-hero-inner">
+      <div>
+        <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Temporada 2025</p>
+        <h1>COLECCIÓN<br>OFICIAL</h1>
+      </div>
+      <p style="color:rgba(248,248,244,.55);max-width:400px;">Toda la equipación oficial de Ratacalva FC. Diseños únicos, calidad premium, espíritu de equipo.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <!-- FILTROS -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
+      <button class="filter-btn" onclick="filterProducts('camisetas', this)">👕 Camisetas</button>
+      <button class="filter-btn" onclick="filterProducts('pantalones', this)">👖 Pantalones</button>
+      <button class="filter-btn" onclick="filterProducts('portero', this)">🥅 Portero</button>
+      <button class="filter-btn" onclick="filterProducts('accesorios', this)">🧢 Accesorios</button>
+      <button class="filter-btn" onclick="filterProducts('ropa', this)">🏷️ Ropa</button>
+      <button class="filter-btn" onclick="filterProducts('calzado', this)">👟 Calzado</button>
+    </div>
+    <div class="products-grid" id="collectionGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: NOSOTROS ══════════════════════ -->
+<div class="page" id="page-nosotros">
+  <div class="about-hero" style="padding-top:calc(var(--nav-h) + 3rem);">
+    <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Quiénes somos</p>
+    <h1>RATACALVA FC</h1>
+    <p>Un equipo, una familia, una rata calva imbatible.</p>
+  </div>
+
+  <div class="section">
+    <!-- HISTORIA -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:5rem;">
+      <div>
+        <p class="section-eyebrow">Nuestra Historia</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">DE LA PASIÓN<br>AL CAMPO</h2>
+        <p style="color:var(--gray);line-height:1.9;margin-bottom:1rem;">Ratacalva FC nació en 2023 como un proyecto de amigos con una pasión en común: el fútbol sala. Lo que empezó como unas quedadas para jugar se convirtió en un equipo con identidad propia, escudo y equipación oficial.</p>
+        <p style="color:var(--gray);line-height:1.9;margin-bottom:1rem;">La rata calva, nuestra mascota, representa la tenacidad, la astucia y el espíritu luchador que caracteriza a todo el equipo. Robert's es la marca que viste a los guerreros del Ratacalva.</p>
+        <p style="color:var(--gray);line-height:1.9;">El verde y el blanco son nuestros colores. La pista, nuestro hogar. Y la afición, nuestra energía.</p>
+      </div>
+      <div style="background:var(--black);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;">
+        <img src="RataCalva_logo.png" alt="Logo Ratacalva" style="width:220px;height:220px;border-radius:50%;margin:0 auto 1.5rem;object-fit:cover;" />
+        <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--white);letter-spacing:3px;">RATACALVA FC</div>
+        <div style="font-size:.75rem;color:var(--green);letter-spacing:3px;margin-top:.25rem;">EST. 2023 · FÚTBOL SALA</div>
+      </div>
+    </div>
+
+    <!-- VALORES -->
+    <div style="margin-bottom:5rem;">
+      <div class="section-header">
+        <p class="section-eyebrow">Lo que nos define</p>
+        <h2 class="section-title">NUESTROS VALORES</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <h3>GARRA</h3>
+          <p>Damos el 100% en cada partido. La intensidad y el compromiso son la esencia del Ratacalva FC.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>EQUIPO</h3>
+          <p>Somos más que compañeros, somos familia. El éxito colectivo siempre por encima del individual.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🏆</div>
+          <h3>EXCELENCIA</h3>
+          <p>En el campo y fuera de él. Nuestros productos reflejan la calidad que exigimos a nuestro juego.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EQUIPO FICTICIO -->
+    <div>
+      <div class="section-header">
+        <p class="section-eyebrow">La Plantilla</p>
+        <h2 class="section-title">NUESTRO EQUIPO</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-num">1</div><div class="team-name">El Portero</div><div class="team-pos">Portero</div></div>
+        <div class="team-card"><div class="team-num">4</div><div class="team-name">El Defensa</div><div class="team-pos">Defensa</div></div>
+        <div class="team-card"><div class="team-num">7</div><div class="team-name">El Capitán</div><div class="team-pos">Ala Derecha</div></div>
+        <div class="team-card"><div class="team-num">9</div><div class="team-name">El Pichichi</div><div class="team-pos">Pivot</div></div>
+        <div class="team-card"><div class="team-num">10</div><div class="team-name">La Rata Calva</div><div class="team-pos">Ala Izquierda</div></div>
+        <div class="team-card"><div class="team-num">11</div><div class="team-name">El Maestro</div><div class="team-pos">Cierre</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: CONTACTO ══════════════════════ -->
+<div class="page" id="page-contacto">
+  <div class="contact-hero" style="padding-top:calc(var(--nav-h) + 3rem);">
+    <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Estamos aquí</p>
+    <h1>CONTACTO</h1>
+    <p>¿Tienes alguna pregunta sobre pedidos, tallas o personalización? Escríbenos.</p>
+  </div>
+
+  <div class="section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>HABLA<br>CON NOSOTROS</h3>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p>hola@robertsratacalva.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>+34 600 000 000</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Castellón de la Plana, España</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <h4>Horario</h4>
+            <p>Lun–Vie: 10:00 – 19:00<br>Sáb: 10:00 – 14:00</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🚚</div>
+          <div>
+            <h4>Envíos</h4>
+            <p>Toda España · 3–5 días hábiles<br>Gratis a partir de 60€</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;letter-spacing:2px;margin-bottom:1.5rem;">ENVÍA TU CONSULTA</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre" id="cf-name" />
+          </div>
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" placeholder="Tus apellidos" id="cf-surname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="tu@email.com" id="cf-email" />
+        </div>
+        <div class="form-group">
+          <label>Asunto</label>
+          <select id="cf-subject">
+            <option value="">Selecciona un asunto</option>
+            <option>Consulta sobre pedido</option>
+            <option>Información de tallas</option>
+            <option>Personalización (dorsal/nombre)</option>
+            <option>Devolución / Cambio</option>
+            <option>Pedido para equipo completo</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea placeholder="Escribe tu mensaje aquí..." id="cf-message"></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="sendContact()">
+          Enviar Mensaje ✉️
+        </button>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-top:5rem;">
+      <div class="section-header">
+        <p class="section-eyebrow">Preguntas Frecuentes</p>
+        <h2 class="section-title">FAQ</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Puedo personalizar la camiseta con mi nombre?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">Sí, el dorsal personalizado está disponible por separado. Puedes elegir nombre, número y país de origen.</p>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Cuánto tarda el envío?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">Los pedidos estándar tardan entre 3 y 5 días hábiles en toda España. Los pedidos personalizados pueden tardar hasta 10 días.</p>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Hacéis precios especiales para equipos?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">¡Sí! Para pedidos de equipo completo (10+ prendas) ofrecemos descuentos especiales. Contáctanos para más info.</p>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Puedo hacer cambios o devoluciones?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">Los productos no personalizados se pueden cambiar en 14 días. Los personalizados no admiten devolución salvo defecto de fabricación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="RataCalva_logo.png" alt="Ratacalva FC" />
+          <span>RATACALVA FC</span>
+        </div>
+        <p>La tienda oficial del Ratacalva Football Club. Todo lo que tu equipo necesita, desde 2023. Verde y blanco en el corazón.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a onclick="showPage('coleccion')">Colección Completa</a></li>
+          <li><a onclick="showPage('ofertas')">Ofertas</a></li>
+          <li><a onclick="filterProducts('camisetas'); showPage('coleccion')">Camisetas</a></li>
+          <li><a onclick="filterProducts('portero'); showPage('coleccion')">Portero</a></li>
+          <li><a onclick="filterProducts('calzado'); showPage('coleccion')">Calzado</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Equipo</h4>
+        <ul>
+          <li><a onclick="showPage('nosotros')">Sobre Nosotros</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+          <li><a>Política de Envíos</a></li>
+          <li><a>Devoluciones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a>Aviso Legal</a></li>
+          <li><a>Política de Privacidad</a></li>
+          <li><a>Cookies</a></li>
+          <li><a>Términos y Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Ratacalva FC · Robert's. Todos los derechos reservados.</p>
+      <div class="footer-socials">
+        <a>📷</a>
+        <a>🐦</a>
+        <a>📘</a>
+        <a>📱</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════ CART SIDEBAR ══════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>🛒 CARRITO</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>Tu carrito está vacío</p>
+      <p style="font-size:.8rem;margin-top:.5rem;">Añade productos para empezar</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-subtotal">
+      <span>Total</span>
+      <strong id="cartTotal">0.00€</strong>
+    </div>
+    <p style="font-size:.75rem;color:var(--gray);margin-bottom:1rem;text-align:center;">🚚 Envío gratis a partir de 60€</p>
+    <button class="checkout-btn" onclick="checkout()">Finalizar Compra →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════ SUCCESS MODAL ══════════════════════ -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="modal-icon">✅</div>
+    <h2>¡COMPRA EXITOSA!</h2>
+    <p>Tu pedido ha sido procesado correctamente. Recibirás un email de confirmación en breve.</p>
+    <div class="modal-order">
+      <span>Número de Pedido</span>
+      <strong id="orderNumber">#RC-0000</strong>
+    </div>
+    <div id="orderSummary" style="font-size:.85rem;color:var(--gray);text-align:left;margin-bottom:1.5rem;background:var(--off-white);border-radius:var(--radius);padding:1rem;"></div>
+    <button class="btn-primary" style="width:100%;justify-content:center;" onclick="closeModal()">¡Seguir comprando! 🐀</button>
+  </div>
+</div>
+
+<!-- ══════════════════════ TOAST ══════════════════════ -->
+<div class="toast" id="toast">✅ Producto añadido al carrito</div>
+
+<script src="app.js"></script>
+</body>
+</html>
