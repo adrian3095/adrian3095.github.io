@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RataCalva FC - Tienda Oficial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <img src="RataCalva logo.png" alt="Logo" class="logo-img">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Colección</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="cart-icon" onclick="toggleCart()">
+                🛒 <span id="cart-count">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>EQUIPACIÓN OFICIAL 2026</h1>
+            <p>Siente los colores de RataCalva FC. Calidad profesional para el campo.</p>
+            <a href="#productos" class="btn-main">Comprar Ahora</a>
+        </div>
+    </section>
+
+    <main id="productos">
+        <h2 class="section-title">Nuestra Colección</h2>
+        <div class="product-grid" id="product-list">
+            </div>
+    </main>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button onclick="toggleCart()">X</button>
+        </div>
+        <div id="cart-items"></div>
+        <div class="cart-footer">
+            <h4>Total: <span id="cart-total">0.00</span>€</h4>
+            <button class="btn-checkout" onclick="checkout()">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <footer id="contacto">
+        <p>&copy; 2026 RataCalva Football Club. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
