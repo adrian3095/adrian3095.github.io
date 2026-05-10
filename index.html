@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ratacalva FC — Tienda Oficial | Robert's</title>
+  <meta name="description" content="Tienda oficial de Ratacalva Football Club. Equipaciones, accesorios y merchandising. Todo lo que tu equipo necesita." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="RataCalva_logo.png" type="image/png" />
+</head>
+<body>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav id="mainNav">
+  <div class="nav-logo" onclick="showPage('home')">
+    <img src="RataCalva_logo.png" alt="Ratacalva FC" />
+    <div class="nav-logo-text">
+      <span>RATACALVA</span>
+      <span>Football Club · EST. 2023</span>
+    </div>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#" onclick="showPage('home')" class="active" data-page="home">Inicio</a>
+    <a href="#" onclick="showPage('ofertas')" data-page="ofertas">Ofertas</a>
+    <a href="#" onclick="showPage('coleccion')" data-page="coleccion">Colección</a>
+    <a href="#" onclick="showPage('nosotros')" data-page="nosotros">Nosotros</a>
+    <a href="#" onclick="showPage('contacto')" data-page="contacto">Contacto</a>
+  </div>
+
+  <div class="nav-actions">
+    <button class="auth-nav-btn" id="authNavBtn" onclick="toggleAuthModal()">
+      <span class="auth-nav-icon">👤</span>
+      <span class="auth-nav-label" id="authNavLabel">Entrar</span>
+    </button>
+    <button class="cart-btn" onclick="toggleCart()">
+      🛒 Carrito
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
+    <div class="hamburger" id="hamburger" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════ PAGE: HOME ══════════════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Tienda Oficial 2025</p>
+        <h1 class="hero-title">ROBERT'S<br><span>RATACALVA</span></h1>
+        <p class="hero-subtitle">Todo lo que tu equipo necesita</p>
+        <p class="hero-desc">Equipaciones oficiales, accesorios premium y merchandising exclusivo del Ratacalva Football Club. Viste los colores con orgullo.</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="showPage('coleccion')">Ver Colección ↗</button>
+          <button class="btn-secondary" onclick="showPage('ofertas')">Ver Ofertas</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="stat-num">10+</div><div class="stat-label">Productos</div></div>
+          <div class="stat"><div class="stat-num">EST</div><div class="stat-label">2023</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Oficial</div></div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-wrap">
+          <img src="RataCalva_logo.png" alt="Ratacalva FC Logo" class="hero-logo" />
+          <div class="hero-badge-float b1">🏆 EST. 2023</div>
+          <div class="hero-badge-float b2">⚽ FÚTBOL SALA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-inner" id="stripInner">
+      <div class="strip-item">RATACALVA FC</div>
+      <div class="strip-item">ROBERT'S</div>
+      <div class="strip-item">TODO LO QUE TU EQUIPO NECESITA</div>
+      <div class="strip-item">EST. 2023</div>
+      <div class="strip-item">TIENDA OFICIAL</div>
+      <div class="strip-item">FÚTBOL SALA</div>
+      <div class="strip-item">RATACALVA FC</div>
+      <div class="strip-item">ROBERT'S</div>
+      <div class="strip-item">TODO LO QUE TU EQUIPO NECESITA</div>
+      <div class="strip-item">EST. 2023</div>
+      <div class="strip-item">TIENDA OFICIAL</div>
+      <div class="strip-item">FÚTBOL SALA</div>
+    </div>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <div class="section">
+    <div class="section-header">
+      <p class="section-eyebrow">Más Populares</p>
+      <h2 class="section-title">PRODUCTOS DESTACADOS</h2>
+      <p class="section-sub">La selección favorita de nuestra comunidad</p>
+    </div>
+    <div class="products-grid" id="featuredGrid"></div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <button class="btn-primary" onclick="showPage('coleccion')" style="display:inline-flex;">Ver toda la colección ↗</button>
+    </div>
+  </div>
+
+  <!-- SOBRE LA MARCA STRIP -->
+  <div style="background:var(--black);padding:5rem 2rem;margin:2rem 0;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;">
+      <div>
+        <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Nuestra Historia</p>
+        <h2 style="font-family:var(--font-display);font-size:clamp(2rem,4vw,3.5rem);color:var(--white);letter-spacing:2px;line-height:1;margin-bottom:1.5rem;">EL ALMA DEL<br><span style="color:var(--green)">RATACALVA</span></h2>
+        <p style="color:rgba(248,248,244,.6);line-height:1.9;margin-bottom:1.5rem;">Fundado en 2023, Ratacalva FC nació de la pasión por el fútbol sala y la hermandad entre compañeros. Robert's es nuestra tienda oficial, donde cada producto lleva el espíritu de la rata calva más valiente del campo.</p>
+        <button class="btn-secondary" onclick="showPage('nosotros')" style="display:inline-flex;">Conocer más</button>
+      </div>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:140px;background:rgba(45,122,58,.15);border:1px solid rgba(45,122,58,.3);border-radius:16px;padding:1.5rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--green);">⚽</div>
+          <div style="font-family:var(--font-display);font-size:1.8rem;color:var(--white);margin-top:.5rem;">SALA</div>
+          <div style="font-size:.72rem;color:rgba(248,248,244,.4);letter-spacing:2px;">FÚTBOL</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:rgba(45,122,58,.15);border:1px solid rgba(45,122,58,.3);border-radius:16px;padding:1.5rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--green);">🏆</div>
+          <div style="font-family:var(--font-display);font-size:1.8rem;color:var(--white);margin-top:.5rem;">2023</div>
+          <div style="font-size:.72rem;color:rgba(248,248,244,.4);letter-spacing:2px;">FUNDACIÓN</div>
+        </div>
+        <div style="flex:1;min-width:140px;background:rgba(45,122,58,.15);border:1px solid rgba(45,122,58,.3);border-radius:16px;padding:1.5rem;text-align:center;">
+          <div style="font-family:var(--font-display);font-size:3rem;color:var(--green);">🐀</div>
+          <div style="font-family:var(--font-display);font-size:1.8rem;color:var(--white);margin-top:.5rem;">CALVA</div>
+          <div style="font-size:.72rem;color:rgba(248,248,244,.4);letter-spacing:2px;">MASCOTA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══════════════════════ PAGE: OFERTAS ══════════════════════ -->
+<div class="page" id="page-ofertas">
+  <div class="offers-hero" style="padding-top:calc(var(--nav-h) + 3rem);">
+    <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Descuentos exclusivos</p>
+    <h1>OFERTAS ESPECIALES</h1>
+    <p>Aprovecha nuestros mejores precios por tiempo limitado</p>
+  </div>
+
+  <div class="section">
+    <!-- BANNER OFERTA PRINCIPAL -->
+    <div class="offers-banner" style="margin-bottom:2.5rem;">
+      <div class="offer-text">
+        <div style="font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:.5rem;">⚡ OFERTA FLASH</div>
+        <h2>PACK JUGADOR COMPLETO</h2>
+        <p>Camiseta + Short + Dorsal personalizado</p>
+        <div class="countdown" id="countdown">
+          <div class="cd-block"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Horas</div></div>
+          <div class="cd-block"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Min</div></div>
+          <div class="cd-block"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Seg</div></div>
+        </div>
+      </div>
+      <div class="offer-price">
+        <div class="old">Antes: 79.97€</div>
+        <div class="new">54.99€</div>
+        <button class="btn-primary" style="margin-top:1rem;" onclick="addPackToCart()">Añadir Pack al Carrito</button>
+      </div>
+    </div>
+
+    <!-- GRID DE OFERTAS -->
+    <div style="margin-bottom:2rem;">
+      <div class="section-header" style="text-align:left;margin-bottom:1.5rem;">
+        <p class="section-eyebrow">Productos en Oferta</p>
+        <h2 class="section-title" style="font-size:2rem;">TODOS LOS DESCUENTOS</h2>
+      </div>
+    </div>
+    <div class="products-grid" id="offersGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: COLECCIÓN ══════════════════════ -->
+<div class="page" id="page-coleccion">
+  <div class="collection-hero">
+    <div class="collection-hero-inner">
+      <div>
+        <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Temporada 2025</p>
+        <h1>COLECCIÓN<br>OFICIAL</h1>
+      </div>
+      <p style="color:rgba(248,248,244,.55);max-width:400px;">Toda la equipación oficial de Ratacalva FC. Diseños únicos, calidad premium, espíritu de equipo.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <!-- FILTROS -->
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
+      <button class="filter-btn" onclick="filterProducts('camisetas', this)">👕 Camisetas</button>
+      <button class="filter-btn" onclick="filterProducts('pantalones', this)">👖 Pantalones</button>
+      <button class="filter-btn" onclick="filterProducts('portero', this)">🥅 Portero</button>
+      <button class="filter-btn" onclick="filterProducts('accesorios', this)">🧢 Accesorios</button>
+      <button class="filter-btn" onclick="filterProducts('ropa', this)">🏷️ Ropa</button>
+      <button class="filter-btn" onclick="filterProducts('calzado', this)">👟 Calzado</button>
+    </div>
+    <div class="products-grid" id="collectionGrid"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: NOSOTROS ══════════════════════ -->
+<div class="page" id="page-nosotros">
+  <div class="about-hero" style="padding-top:calc(var(--nav-h) + 3rem);">
+    <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Quiénes somos</p>
+    <h1>RATACALVA FC</h1>
+    <p>Un equipo, una familia, una rata calva imbatible.</p>
+  </div>
+
+  <div class="section">
+    <!-- HISTORIA -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;margin-bottom:5rem;">
+      <div>
+        <p class="section-eyebrow">Nuestra Historia</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">DE LA PASIÓN<br>AL CAMPO</h2>
+        <p style="color:var(--gray);line-height:1.9;margin-bottom:1rem;">Ratacalva FC nació en 2023 como un proyecto de amigos con una pasión en común: el fútbol sala. Lo que empezó como unas quedadas para jugar se convirtió en un equipo con identidad propia, escudo y equipación oficial.</p>
+        <p style="color:var(--gray);line-height:1.9;margin-bottom:1rem;">La rata calva, nuestra mascota, representa la tenacidad, la astucia y el espíritu luchador que caracteriza a todo el equipo. Robert's es la marca que viste a los guerreros del Ratacalva.</p>
+        <p style="color:var(--gray);line-height:1.9;">El verde y el blanco son nuestros colores. La pista, nuestro hogar. Y la afición, nuestra energía.</p>
+      </div>
+      <div style="background:var(--black);border-radius:var(--radius-lg);padding:2.5rem;text-align:center;">
+        <img src="RataCalva_logo.png" alt="Logo Ratacalva" style="width:220px;height:220px;border-radius:50%;margin:0 auto 1.5rem;object-fit:cover;" />
+        <div style="font-family:var(--font-display);font-size:1.5rem;color:var(--white);letter-spacing:3px;">RATACALVA FC</div>
+        <div style="font-size:.75rem;color:var(--green);letter-spacing:3px;margin-top:.25rem;">EST. 2023 · FÚTBOL SALA</div>
+      </div>
+    </div>
+
+    <!-- VALORES -->
+    <div style="margin-bottom:5rem;">
+      <div class="section-header">
+        <p class="section-eyebrow">Lo que nos define</p>
+        <h2 class="section-title">NUESTROS VALORES</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <h3>GARRA</h3>
+          <p>Damos el 100% en cada partido. La intensidad y el compromiso son la esencia del Ratacalva FC.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>EQUIPO</h3>
+          <p>Somos más que compañeros, somos familia. El éxito colectivo siempre por encima del individual.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🏆</div>
+          <h3>EXCELENCIA</h3>
+          <p>En el campo y fuera de él. Nuestros productos reflejan la calidad que exigimos a nuestro juego.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EQUIPO FICTICIO -->
+    <div>
+      <div class="section-header">
+        <p class="section-eyebrow">La Plantilla</p>
+        <h2 class="section-title">NUESTRO EQUIPO</h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><div class="team-num">1</div><div class="team-name">El Portero</div><div class="team-pos">Portero</div></div>
+        <div class="team-card"><div class="team-num">4</div><div class="team-name">El Defensa</div><div class="team-pos">Defensa</div></div>
+        <div class="team-card"><div class="team-num">7</div><div class="team-name">El Capitán</div><div class="team-pos">Ala Derecha</div></div>
+        <div class="team-card"><div class="team-num">9</div><div class="team-name">El Pichichi</div><div class="team-pos">Pivot</div></div>
+        <div class="team-card"><div class="team-num">10</div><div class="team-name">La Rata Calva</div><div class="team-pos">Ala Izquierda</div></div>
+        <div class="team-card"><div class="team-num">11</div><div class="team-name">El Maestro</div><div class="team-pos">Cierre</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: CONTACTO ══════════════════════ -->
+<div class="page" id="page-contacto">
+  <div class="contact-hero" style="padding-top:calc(var(--nav-h) + 3rem);">
+    <p style="font-size:.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--green);margin-bottom:.75rem;">Estamos aquí</p>
+    <h1>CONTACTO</h1>
+    <p>¿Tienes alguna pregunta sobre pedidos, tallas o personalización? Escríbenos.</p>
+  </div>
+
+  <div class="section">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>HABLA<br>CON NOSOTROS</h3>
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p>hola@robertsratacalva.com</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p>+34 600 000 000</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Ubicación</h4>
+            <p>Castellón de la Plana, España</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">⏰</div>
+          <div>
+            <h4>Horario</h4>
+            <p>Lun–Vie: 10:00 – 19:00<br>Sáb: 10:00 – 14:00</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🚚</div>
+          <div>
+            <h4>Envíos</h4>
+            <p>Toda España · 3–5 días hábiles<br>Gratis a partir de 60€</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;letter-spacing:2px;margin-bottom:1.5rem;">ENVÍA TU CONSULTA</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre" id="cf-name" />
+          </div>
+          <div class="form-group">
+            <label>Apellidos</label>
+            <input type="text" placeholder="Tus apellidos" id="cf-surname" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="tu@email.com" id="cf-email" />
+        </div>
+        <div class="form-group">
+          <label>Asunto</label>
+          <select id="cf-subject">
+            <option value="">Selecciona un asunto</option>
+            <option>Consulta sobre pedido</option>
+            <option>Información de tallas</option>
+            <option>Personalización (dorsal/nombre)</option>
+            <option>Devolución / Cambio</option>
+            <option>Pedido para equipo completo</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensaje</label>
+          <textarea placeholder="Escribe tu mensaje aquí..." id="cf-message"></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;justify-content:center;" onclick="sendContact()">
+          Enviar Mensaje ✉️
+        </button>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div style="margin-top:5rem;">
+      <div class="section-header">
+        <p class="section-eyebrow">Preguntas Frecuentes</p>
+        <h2 class="section-title">FAQ</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Puedo personalizar la camiseta con mi nombre?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">Sí, el dorsal personalizado está disponible por separado. Puedes elegir nombre, número y país de origen.</p>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Cuánto tarda el envío?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">Los pedidos estándar tardan entre 3 y 5 días hábiles en toda España. Los pedidos personalizados pueden tardar hasta 10 días.</p>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Hacéis precios especiales para equipos?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">¡Sí! Para pedidos de equipo completo (10+ prendas) ofrecemos descuentos especiales. Contáctanos para más info.</p>
+        </div>
+        <div style="background:var(--off-white);border-radius:var(--radius);padding:1.5rem;">
+          <h4 style="font-weight:700;margin-bottom:.5rem;">¿Puedo hacer cambios o devoluciones?</h4>
+          <p style="font-size:.85rem;color:var(--gray);">Los productos no personalizados se pueden cambiar en 14 días. Los personalizados no admiten devolución salvo defecto de fabricación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: AVISO LEGAL ══════════════════════ -->
+<div class="page" id="page-aviso-legal">
+  <div class="legal-hero">
+    <p class="legal-eyebrow">Información Legal</p>
+    <h1>AVISO LEGAL</h1>
+    <p>Información sobre el titular del sitio web y condiciones de uso</p>
+  </div>
+  <div class="legal-content">
+
+    <div class="legal-notice-box">
+      <h2>⚠️ AVISO LEGAL – PROYECTO ACADÉMICO</h2>
+      <p>Esta plataforma de comercio electrónico constituye un <strong>PROYECTO ACADÉMICO</strong> desarrollado por estudiantes de primer curso del Grado Superior en Desarrollo de Aplicaciones Multiplataforma y Marketing y Publicidad para el curso 2025/2026.</p>
+      <h3>Declaración del carácter ficticio</h3>
+      <ul>
+        <li>La marca, productos, servicios y entidad comercial presentados en este sitio web son completamente <strong>FICTICIOS</strong> y han sido creados con fines exclusivamente educativos.</li>
+        <li>Esta web <strong>NO</strong> representa una empresa real ni realiza actividad comercial alguna.</li>
+        <li>No se efectuarán transacciones económicas ni se recopilarán datos personales con fines comerciales.</li>
+      </ul>
+      <h3>Propiedad Intelectual</h3>
+      <ul>
+        <li>Los elementos visuales, textuales y audiovisuales utilizados en este proyecto tienen un propósito <strong>EXCLUSIVAMENTE ACADÉMICO y DIDÁCTICO</strong>, amparado bajo el derecho de cita con fines educativos.</li>
+        <li>Este sitio web no tiene finalidad comercial y se utiliza únicamente como ejercicio práctico en un entorno educativo controlado.</li>
+        <li>Los titulares de derechos que identifiquen contenido de su propiedad pueden contactar con <a href="mailto:aaronlor2007@gmail.com">aaronlor2007@gmail.com</a> para solicitar su retirada inmediata.</li>
+      </ul>
+      <h3>Exención de Responsabilidad</h3>
+      <p>Ni los estudiantes creadores, ni el profesorado, ni la institución educativa asumen responsabilidad alguna por el uso indebido o interpretación errónea del contenido de este sitio. En caso de duda, puede contactar con <a href="mailto:aaronlor2007@gmail.com">aaronlor2007@gmail.com</a>.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>1. Datos Identificativos</h2>
+      <p>En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI), se facilitan los siguientes datos:</p>
+      <div class="legal-data-grid">
+        <div class="legal-data-item"><span>Titular del sitio web</span><strong>RataCalva.f.s</strong></div>
+        <div class="legal-data-item"><span>NIF</span><strong>G-12345678</strong></div>
+        <div class="legal-data-item"><span>Domicilio social</span><strong>Plaza Mayor, 1, 12001, Castellón de la Plana, Castellón</strong></div>
+        <div class="legal-data-item"><span>Correo electrónico</span><strong><a href="mailto:info@ratacalva.com">info@ratacalva.com</a></strong></div>
+        <div class="legal-data-item"><span>Sitio web</span><strong>www.ratacalva.com</strong></div>
+        <div class="legal-data-item"><span>Datos registrales</span><strong>Inscrita en el Registro de Castellón, Tomo 123, Folio 45, Hoja CS-6789</strong></div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>2. Objeto del Sitio Web</h2>
+      <p>El presente sitio web ha sido creado para la venta y distribución de productos, así como la promoción de actividades de la marca, facilitando al público el acceso a la información relativa a los productos y servicios ofertados por Ratacalva.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>3. Condiciones de Uso</h2>
+      <p>El acceso y/o uso de este portal atribuye la condición de <strong>USUARIO</strong>, que acepta, desde dicho acceso y/o uso, las presentes Condiciones Generales de Uso. El Usuario asume la responsabilidad del uso del portal.</p>
+      <p style="margin-top:1rem;">El Usuario se compromete a no emplear los contenidos y servicios para:</p>
+      <ul>
+        <li>Incurrir en actividades ilícitas, ilegales o contrarias a la buena fe y al orden público.</li>
+        <li>Difundir contenidos de carácter racista, xenófobo, pornográfico-ilegal o atentatorio contra los derechos humanos.</li>
+        <li>Provocar daños en los sistemas físicos y lógicos de Ratacalva, de sus proveedores o de terceras personas.</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>4. Propiedad Intelectual e Industrial</h2>
+      <p>Ratacalva, por sí o como cesionaria, es titular de todos los derechos de propiedad intelectual e industrial de su página web, así como de los elementos contenidos en la misma (imágenes, sonido, audio, vídeo, software o textos; marcas o logotipos, combinaciones de colores, estructura y diseño, etc.).</p>
+      <p style="margin-top:1rem;"><strong>Todos los derechos reservados.</strong> En virtud de lo dispuesto en la Ley de Propiedad Intelectual, quedan expresamente prohibidas la reproducción, la distribución y la comunicación pública de la totalidad o parte de los contenidos de esta página web, con fines comerciales, sin la autorización de Ratacalva.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>5. Exclusión de Garantías y Responsabilidad</h2>
+      <p>Ratacalva declara que ha adoptado las medidas necesarias para el correcto funcionamiento de su sitio web y la ausencia de virus. Sin embargo, no se hace responsable de:</p>
+      <ul>
+        <li>Errores u omisiones en los contenidos.</li>
+        <li>Falta de disponibilidad del portal.</li>
+        <li>Transmisión de virus o programas maliciosos en los contenidos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>6. Modificaciones</h2>
+      <p>Ratacalva se reserva el derecho de efectuar sin previo aviso las modificaciones que considere oportunas en su portal, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios como la forma en la que éstos aparezcan presentados.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>7. Enlaces (Links)</h2>
+      <p>En el caso de que en el sitio web se dispusiesen enlaces hacia otros sitios de Internet, Ratacalva no ejercerá ningún tipo de control sobre dichos sitios y contenidos, y no asumirá responsabilidad alguna por los contenidos de algún enlace perteneciente a un sitio web ajeno.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>8. Ley Aplicable y Jurisdicción</h2>
+      <p>La relación entre Ratacalva y el Usuario se regirá por la normativa española vigente. Cualquier controversia se someterá a los Juzgados y tribunales de la ciudad de <strong>Castellón de la Plana</strong>, salvo que la Ley aplicable disponga otra cosa.</p>
+    </div>
+
+    <div class="legal-back">
+      <button class="btn-primary" onclick="showPage('home')">← Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: PRIVACIDAD ══════════════════════ -->
+<div class="page" id="page-privacidad">
+  <div class="legal-hero">
+    <p class="legal-eyebrow">Tus Datos</p>
+    <h1>POLÍTICA DE PRIVACIDAD</h1>
+    <p>Cómo recopilamos, usamos y protegemos tu información personal</p>
+  </div>
+  <div class="legal-content">
+
+    <div class="legal-intro-box">
+      <p>En Ratacalva nos tomamos muy en serio tu privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos, almacenamos y protegemos tus datos personales, de conformidad con el <strong>Reglamento (UE) 2016/679 (RGPD)</strong> y la <strong>Ley Orgánica 3/2018 (LOPDGDD)</strong>.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>1. Responsable del Tratamiento</h2>
+      <div class="legal-data-grid">
+        <div class="legal-data-item"><span>Identidad</span><strong>RataCalva.f.s</strong></div>
+        <div class="legal-data-item"><span>NIF</span><strong>G-12345678</strong></div>
+        <div class="legal-data-item"><span>Dirección Postal</span><strong>Plaza Mayor, 1, 12001, Castellón de la Plana, Castellón</strong></div>
+        <div class="legal-data-item"><span>Correo Electrónico</span><strong><a href="mailto:info@ratacalva.com">info@ratacalva.com</a></strong></div>
+        <div class="legal-data-item"><span>Sitio Web</span><strong>www.ratacalva.com</strong></div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>2. Finalidad, Base Jurídica y Datos Recabados</h2>
+      <p>Dependiendo de cómo interactúes con nuestra web, trataremos tus datos con distintas finalidades:</p>
+
+      <div class="legal-card">
+        <div class="legal-card-header">📧 A) Formulario de Contacto / Atención al Cliente</div>
+        <div class="legal-card-body">
+          <p><strong>Finalidad:</strong> Responder a tus consultas, dudas o sugerencias realizadas a través de la web o el correo electrónico.</p>
+          <p><strong>Base Jurídica:</strong> Tu consentimiento expreso al enviarnos el mensaje y aceptar esta política.</p>
+          <p><strong>Datos Recogidos:</strong> Nombre, correo electrónico y cualquier dato que incluyas en el mensaje.</p>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-header">👤 B) Formulario de Registro de Usuario</div>
+        <div class="legal-card-body">
+          <p><strong>Finalidad:</strong> Gestionar tu alta como usuario en la plataforma, permitirte el acceso a tu área privada, historial de pedidos y agilizar futuras compras.</p>
+          <p><strong>Base Jurídica:</strong> La ejecución de la relación contractual (Términos y Condiciones) y tu consentimiento.</p>
+          <p><strong>Datos Recogidos:</strong> Nombre y apellidos, correo electrónico, contraseña (cifrada) y teléfono.</p>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-header">🛒 C) Formulario de Compra (Checkout)</div>
+        <div class="legal-card-body">
+          <p><strong>Finalidad:</strong> Tramitar, enviar y entregar tu pedido; gestionar el pago, la facturación y las posibles devoluciones.</p>
+          <p><strong>Base Jurídica:</strong> La ejecución del contrato de compraventa.</p>
+          <p><strong>Datos Recogidos:</strong> Nombre, apellidos, DNI/NIF (para factura), dirección postal completa, correo electrónico, teléfono y datos de pago (procesados de forma segura a través de pasarelas de pago externas).</p>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-header">📬 D) Suscripción a la Newsletter (Boletín)</div>
+        <div class="legal-card-body">
+          <p><strong>Finalidad:</strong> Enviarte novedades, ofertas exclusivas, promociones y contenido relacionado con el universo Ratacalva.</p>
+          <p><strong>Base Jurídica:</strong> Tu consentimiento expreso al marcar la casilla de suscripción.</p>
+          <p><strong>Datos Recogidos:</strong> Correo electrónico.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>3. Plazo de Conservación de los Datos</h2>
+      <ul>
+        <li><strong>Datos de Clientes (Compras):</strong> Se conservarán mientras dure la relación comercial y, posteriormente, durante los plazos legales exigidos por la normativa fiscal y contable (generalmente 4 o 5 años).</li>
+        <li><strong>Datos de Suscriptores (Newsletter):</strong> Hasta que decidas darte de baja o nos solicites que los eliminemos.</li>
+        <li><strong>Datos de Contacto:</strong> El tiempo necesario para resolver tu consulta.</li>
+        <li><strong>Usuarios Registrados:</strong> Hasta que solicites la baja de tu cuenta.</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>4. Destinatarios: ¿Quién más ve tus datos?</h2>
+      <p>En Ratacalva <strong>no vendemos tus datos a terceros</strong>. Sin embargo, para poder prestarte nuestros servicios, necesitamos compartir información estrictamente necesaria con proveedores de confianza, tales como:</p>
+      <ul>
+        <li><strong>Empresas de transporte y logística:</strong> Para llevarte el paquete a casa.</li>
+        <li><strong>Plataformas de pago:</strong> Para procesar los cobros de forma segura.</li>
+        <li><strong>Servicios de Hosting y tecnología:</strong> Proveedores que alojan nuestra web y correo electrónico.</li>
+        <li><strong>Asesoría/Gestoría:</strong> Para el cumplimiento de obligaciones fiscales y contables.</li>
+      </ul>
+      <p style="margin-top:1rem;">Todos estos proveedores están obligados a cumplir con la normativa de protección de datos. Asimismo, cederemos datos a organismos públicos (Hacienda, Jueces y Tribunales) si existe una obligación legal.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>5. Tus Derechos</h2>
+      <p>Como usuario, tienes el control sobre tu información. Puedes ejercer los siguientes derechos ante Ratacalva:</p>
+      <div class="legal-rights-grid">
+        <div class="legal-right-item"><span class="right-icon">👁️</span><strong>Acceso</strong><p>Saber qué datos tenemos tuyos.</p></div>
+        <div class="legal-right-item"><span class="right-icon">✏️</span><strong>Rectificación</strong><p>Corregir datos inexactos o incompletos.</p></div>
+        <div class="legal-right-item"><span class="right-icon">🗑️</span><strong>Supresión</strong><p>Pedir que borremos tus datos cuando ya no sean necesarios.</p></div>
+        <div class="legal-right-item"><span class="right-icon">🚫</span><strong>Oposición</strong><p>Oponerte a que tratemos tus datos para un fin concreto.</p></div>
+        <div class="legal-right-item"><span class="right-icon">⏸️</span><strong>Limitación</strong><p>Pedir que "congelemos" el tratamiento de tus datos.</p></div>
+        <div class="legal-right-item"><span class="right-icon">📦</span><strong>Portabilidad</strong><p>Recibir tus datos en un formato estructurado para llevártelos a otra empresa.</p></div>
+      </div>
+      <div class="legal-highlight-box">
+        <p>Para ejercer tus derechos, envíanos un email a <a href="mailto:info@ratacalva.com">info@ratacalva.com</a> indicando en el asunto <strong>"PROTECCIÓN DE DATOS"</strong>. Si consideras que no hemos tratado tus datos correctamente, puedes reclamar ante la <strong>AEPD</strong> en <a href="https://www.aepd.es" target="_blank">www.aepd.es</a>.</p>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>6. Seguridad de los Datos</h2>
+      <p>En Ratacalva hemos adoptado todas las medidas técnicas y organizativas necesarias para garantizar la seguridad de tus datos personales y evitar su alteración, pérdida, tratamiento o acceso no autorizado.</p>
+    </div>
+
+    <div class="legal-back">
+      <button class="btn-primary" onclick="showPage('home')">← Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: COOKIES ══════════════════════ -->
+<div class="page" id="page-cookies">
+  <div class="legal-hero">
+    <p class="legal-eyebrow">Navegación</p>
+    <h1>POLÍTICA DE COOKIES</h1>
+    <p>Información sobre las cookies que utilizamos en nuestra web</p>
+  </div>
+  <div class="legal-content">
+
+    <div class="legal-section">
+      <h2>1. ¿Qué son las Cookies?</h2>
+      <p>Una cookie no es solo una galleta (ojalá). En el mundo digital, es un pequeño archivo de texto que se descarga en tu ordenador, móvil o tablet al acceder a determinadas páginas web.</p>
+      <p style="margin-top:1rem;">Las cookies permiten a una página web almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan, pueden utilizarse para reconocer al usuario.</p>
+      <p style="margin-top:1rem;">En Ratacalva utilizamos cookies para que la web funcione correctamente (por ejemplo, para que no se vacíe tu carrito de compra si cambias de página) y para entender cómo navegas y así poder mejorar.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>2. Tipos de Cookies que utilizamos</h2>
+
+      <div class="legal-card">
+        <div class="legal-card-header">🔒 A) Cookies Técnicas o Necesarias (Esenciales)</div>
+        <div class="legal-card-body">
+          <p>Son aquellas imprescindibles para que puedas navegar por la web y usar sus funciones básicas. Sin ellas, la tienda no funcionaría correctamente. <strong>Estas cookies no requieren tu consentimiento explícito.</strong></p>
+          <p style="margin-top:0.75rem;">En Ratacalva utilizamos cookies técnicas propias como <code>PHPSESSID</code> o <code>wc_session</code>, que sirven para identificar tu sesión de usuario mientras navegas. También utilizamos cookies de nuestra plataforma de comercio electrónico, como <code>woocommerce_cart_hash</code> y <code>woocommerce_items_in_cart</code>, cuya función es detectar si has añadido productos al carrito y mantenerlos ahí. Adicionalmente, usamos la cookie <code>cookie_notice_accepted</code> para recordar si has aceptado nuestras cookies (guardada durante un año).</p>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-header">📊 B) Cookies de Análisis o Medición</div>
+        <div class="legal-card-body">
+          <p>Son aquellas que nos permiten contar cuánta gente nos visita y analizar cómo usan la web (qué páginas gustan más, desde dónde nos visitan, etc.). Esto nos ayuda a mejorar nuestros productos y la web.</p>
+          <p style="margin-top:0.75rem;">Para ello utilizamos <strong>Google Analytics</strong>, que instala cookies como <code>_ga</code> o <code>_gid</code>. Estas cookies sirven para distinguir a los usuarios únicos y generar estadísticas de uso de forma anónima. La duración varía desde 24 horas hasta 2 años en tu navegador.</p>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <div class="legal-card-header">📣 C) Cookies de Publicidad y Redes Sociales (De Terceros)</div>
+        <div class="legal-card-body">
+          <p>Son aquellas que almacenan información sobre tu comportamiento navegando para mostrarte publicidad personalizada en otros sitios.</p>
+          <p style="margin-top:0.75rem;">Utilizamos cookies de terceros como <strong>Meta (Facebook)</strong>, identificadas como <code>_fbp</code>. Su finalidad es permitirnos mostrarte anuncios de Ratacalva en Facebook o Instagram, o medir la eficacia de nuestras campañas publicitarias. Estas cookies tienen una duración aproximada de 3 meses.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>3. ¿Cómo puedes gestionar o eliminar las cookies?</h2>
+      <p>Tienes el control total sobre tus datos. Puedes permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante dos vías:</p>
+
+      <div class="legal-highlight-box" style="margin-top:1.5rem;">
+        <h3>🍪 A través de nuestro Banner de configuración</h3>
+        <p>Al entrar en la web por primera vez, verás un aviso de cookies donde puedes aceptar todas, rechazarlas o configurarlas manualmente. Siempre puedes volver a acceder a esta configuración desde el pie de página.</p>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        <h3 style="margin-bottom:1rem;">🌐 A través de la configuración de tu navegador</h3>
+        <div class="legal-browser-grid">
+          <div class="legal-browser-item"><strong>Google Chrome</strong><span>Configuración → Privacidad y seguridad → Cookies y otros datos de sitios</span></div>
+          <div class="legal-browser-item"><strong>Mozilla Firefox</strong><span>Opciones → Privacidad y Seguridad</span></div>
+          <div class="legal-browser-item"><strong>Safari</strong><span>Preferencias → Privacidad</span></div>
+          <div class="legal-browser-item"><strong>Microsoft Edge</strong><span>Configuración → Cookies y permisos del sitio</span></div>
+        </div>
+      </div>
+
+      <p style="margin-top:1.5rem;padding:1rem;background:rgba(192,57,43,0.08);border-left:3px solid var(--red);border-radius:8px;font-size:.9rem;"><strong>⚠️ Atención:</strong> Si desactivas las cookies técnicas estrictamente necesarias, es posible que no puedas realizar compras correctamente o acceder a tu área de cliente en Ratacalva.</p>
+    </div>
+
+    <div class="legal-back">
+      <button class="btn-primary" onclick="showPage('home')">← Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ PAGE: TÉRMINOS Y CONDICIONES ══════════════════════ -->
+<div class="page" id="page-terminos">
+  <div class="legal-hero">
+    <p class="legal-eyebrow">Compras</p>
+    <h1>TÉRMINOS Y CONDICIONES</h1>
+    <p>Condiciones generales de venta en la tienda oficial de Ratacalva FC</p>
+  </div>
+  <div class="legal-content">
+
+    <div class="legal-intro-box">
+      <p>Las presentes Condiciones Generales de Venta regulan la compra de productos a través del sitio web <strong>www.ratacalva.com</strong>, titularidad de <strong>RataCalva.f.s</strong>, con NIF G-12345678 y domicilio en Plaza Mayor, 1, 12001, Castellón de la Plana. El hecho de realizar un pedido implica la aceptación plena y sin reservas de estas condiciones.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>1. Identificación y Objeto</h2>
+      <p>Las presentes Condiciones Generales de Venta regulan la compra de productos a través del sitio web www.ratacalva.com, titularidad de RataCalva.f.s (en adelante, "el Vendedor"), con NIF G-12345678 y domicilio en Plaza Mayor, 1, 12001, Castellón de la Plana, Castellón. El hecho de realizar un pedido implica el conocimiento y la aceptación plena y sin reservas de estas condiciones por parte del Cliente.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>2. Productos y Precios</h2>
+      <p>Los productos ofertados se detallan en la web con su descripción y precio.</p>
+      <ul>
+        <li><strong>Precios:</strong> Todos los precios indicados están en Euros (€) e incluyen el Impuesto sobre el Valor Añadido (IVA) vigente en España.</li>
+        <li><strong>Disponibilidad:</strong> Nos esforzamos para que el stock esté siempre actualizado. Si por error comprases un producto que no tenemos en stock, te avisaremos inmediatamente para ofrecerte un cambio o la devolución total del dinero.</li>
+        <li><strong>Cambios de precio:</strong> Ratacalva se reserva el derecho de modificar los precios en cualquier momento, respetando siempre el precio marcado en el momento en que realizaste el pedido.</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>3. Proceso de Compra</h2>
+      <p>Para realizar una compra en Ratacalva, el procedimiento es sencillo:</p>
+      <div class="legal-steps">
+        <div class="legal-step"><div class="step-num">1</div><div><strong>Selección</strong><p>Elige los productos que te gusten y añádelos al "Carrito".</p></div></div>
+        <div class="legal-step"><div class="step-num">2</div><div><strong>Datos</strong><p>Ve al carrito y pulsa "Finalizar Compra". Rellena tus datos de envío y facturación.</p></div></div>
+        <div class="legal-step"><div class="step-num">3</div><div><strong>Pago</strong><p>Selecciona el método de pago y confirma el pedido.</p></div></div>
+        <div class="legal-step"><div class="step-num">4</div><div><strong>Confirmación</strong><p>Recibirás un email de confirmación con los detalles de tu compra. El contrato se entenderá formalizado en ese momento.</p></div></div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>4. Formas de Pago</h2>
+      <p>En Ratacalva aceptamos las siguientes formas de pago seguras:</p>
+      <div class="legal-payment-grid">
+        <div class="legal-payment-item"><span>💳</span><strong>Tarjeta de Crédito/Débito</strong><p>A través de la pasarela de pago segura (TPV Virtual). No guardamos los datos de tu tarjeta.</p></div>
+        <div class="legal-payment-item"><span>🅿️</span><strong>PayPal</strong><p>Paga de forma rápida y segura con tu cuenta de PayPal.</p></div>
+        <div class="legal-payment-item"><span>📱</span><strong>Bizum</strong><p>Selecciona esta opción e introduce tu móvil para pagar al instante.</p></div>
+        <div class="legal-payment-item"><span>🏦</span><strong>Transferencia Bancaria</strong><p>Te daremos nuestro número de cuenta (IBAN). El pedido no se enviará hasta recibir el pago.</p></div>
+        <div class="legal-payment-item"><span>💵</span><strong>Contrareembolso</strong><p>Pagas al repartidor en efectivo cuando te entregue el paquete. Puede conllevar un recargo de gestión.</p></div>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>5. Envíos</h2>
+      <p>Realizamos envíos a las zonas indicadas durante el proceso de compra.</p>
+      <ul>
+        <li><strong>Plazos de Entrega:</strong> Los plazos son estimados y dependen de la zona de envío (normalmente entre 24h y 72h laborables para Península). No nos hacemos responsables de retrasos por causas ajenas (huelgas, clima, festivos locales).</li>
+        <li><strong>Gastos de Envío:</strong> Los gastos de envío se calculan automáticamente antes de finalizar el pedido según tu dirección.</li>
+      </ul>
+    </div>
+
+    <div class="legal-section">
+      <h2>6. Derecho de Desistimiento (Devoluciones)</h2>
+      <p>Si no te convence tu compra, tienes derecho a desistir del contrato sin necesidad de justificación.</p>
+      <div class="legal-devolucion-grid">
+        <div class="legal-devolucion-item">
+          <strong>⏱️ Plazo</strong>
+          <p>Tienes <strong>14 días naturales</strong> desde que recibes el pedido para comunicarnos que quieres devolverlo.</p>
+        </div>
+        <div class="legal-devolucion-item">
+          <strong>📧 Cómo ejercerlo</strong>
+          <p>Envíanos un email a <a href="mailto:info@ratacalva.com">info@ratacalva.com</a> indicando tu nombre, número de pedido y los productos a devolver.</p>
+        </div>
+        <div class="legal-devolucion-item">
+          <strong>💶 Consecuencias</strong>
+          <p>Te devolveremos el dinero de los productos (incluidos los gastos de envío iniciales de la modalidad más económica).</p>
+        </div>
+        <div class="legal-devolucion-item">
+          <strong>📦 Coste de la devolución</strong>
+          <p>Salvo que el producto esté defectuoso o sea un error nuestro, el cliente asumirá los costes de envío de la devolución.</p>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;padding:1rem 1.25rem;background:rgba(192,57,43,0.08);border-left:3px solid var(--red);border-radius:8px;">
+        <strong>❌ Excepciones al derecho de desistimiento</strong>
+        <p style="margin-top:.5rem;font-size:.9rem;">Por motivos de higiene, salud o naturaleza del producto, <strong>NO</strong> se admitirán devoluciones de:</p>
+        <ul style="margin-top:.5rem;font-size:.9rem;">
+          <li>Productos personalizados o hechos a medida.</li>
+          <li>Ropa interior, bañadores o pendientes que hayan sido desprecintados tras la entrega.</li>
+          <li>Productos que no estén en su embalaje original o hayan sido usados más allá de la mera comprobación.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <h2>7. Garantía Legal</h2>
+      <p>Todos nuestros productos son nuevos y cuentan con una <strong>garantía legal de 3 años</strong> desde la fecha de entrega, conforme al Real Decreto Legislativo 1/2007. La garantía cubre los defectos de fabricación o faltas de conformidad que existieran en el momento de la entrega. No cubre el desgaste normal por uso, el mal uso, o los daños accidentales.</p>
+    </div>
+
+    <div class="legal-section">
+      <h2>8. Atención al Cliente y Reclamaciones</h2>
+      <p>Para cualquier duda, incidencia o reclamación, puedes contactar con nosotros:</p>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:info@ratacalva.com">info@ratacalva.com</a></li>
+        <li><strong>Dirección Postal:</strong> Plaza Mayor, 1, 12001, Castellón de la Plana.</li>
+      </ul>
+      <p style="margin-top:1rem;">Existen hojas de reclamaciones a disposición del consumidor en nuestra dirección social. Conforme al Art. 14.1 del Reglamento 524/2013, la Comisión Europea facilita una plataforma de resolución de litigios en línea: <a href="http://ec.europa.eu/consumers/odr/" target="_blank">http://ec.europa.eu/consumers/odr/</a></p>
+    </div>
+
+    <div class="legal-section">
+      <h2>9. Ley Aplicable y Jurisdicción</h2>
+      <p>Estas condiciones se regirán por la legislación española. En caso de controversia, si el cliente es consumidor final, la competencia corresponderá a los jueces y tribunales de su domicilio. Si el cliente es empresa, se someterán a los Juzgados de <strong>Castellón de la Plana</strong>, renunciando expresamente a cualquier otro fuero.</p>
+    </div>
+
+    <div class="legal-back">
+      <button class="btn-primary" onclick="showPage('home')">← Volver al inicio</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="RataCalva_logo.png" alt="Ratacalva FC" />
+          <span>RATACALVA FC</span>
+        </div>
+        <p>La tienda oficial del Ratacalva Football Club. Todo lo que tu equipo necesita, desde 2023. Verde y blanco en el corazón.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tienda</h4>
+        <ul>
+          <li><a onclick="showPage('coleccion')">Colección Completa</a></li>
+          <li><a onclick="showPage('ofertas')">Ofertas</a></li>
+          <li><a onclick="filterProducts('camisetas'); showPage('coleccion')">Camisetas</a></li>
+          <li><a onclick="filterProducts('portero'); showPage('coleccion')">Portero</a></li>
+          <li><a onclick="filterProducts('calzado'); showPage('coleccion')">Calzado</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Equipo</h4>
+        <ul>
+          <li><a onclick="showPage('nosotros')">Sobre Nosotros</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+          <li><a>Política de Envíos</a></li>
+          <li><a>Devoluciones</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a onclick="showPage('aviso-legal')" style="cursor:pointer;">Aviso Legal</a></li>
+          <li><a onclick="showPage('privacidad')" style="cursor:pointer;">Política de Privacidad</a></li>
+          <li><a onclick="showPage('cookies')" style="cursor:pointer;">Cookies</a></li>
+          <li><a onclick="showPage('terminos')" style="cursor:pointer;">Términos y Condiciones</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Ratacalva FC · Robert's. Todos los derechos reservados.</p>
+      <div class="footer-socials">
+        <a>📷</a>
+        <a>🐦</a>
+        <a>📘</a>
+        <a>📱</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════ CART SIDEBAR ══════════════════════ -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h2>🛒 CARRITO</h2>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <div class="cart-empty-icon">🛒</div>
+      <p>Tu carrito está vacío</p>
+      <p style="font-size:.8rem;margin-top:.5rem;">Añade productos para empezar</p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-subtotal">
+      <span>Total</span>
+      <strong id="cartTotal">0.00€</strong>
+    </div>
+    <p style="font-size:.75rem;color:var(--gray);margin-bottom:1rem;text-align:center;">🚚 Envío gratis a partir de 60€</p>
+    <button class="checkout-btn" onclick="checkout()">Finalizar Compra →</button>
+  </div>
+</div>
+
+<!-- ══════════════════════ SUCCESS MODAL ══════════════════════ -->
+<div class="modal-overlay" id="successModal">
+  <div class="modal">
+    <div class="modal-icon">✅</div>
+    <h2>¡COMPRA EXITOSA!</h2>
+    <p>Tu pedido ha sido procesado correctamente. Recibirás un email de confirmación en breve.</p>
+    <div class="modal-order">
+      <span>Número de Pedido</span>
+      <strong id="orderNumber">#RC-0000</strong>
+    </div>
+    <div id="orderSummary" style="font-size:.85rem;color:var(--gray);text-align:left;margin-bottom:1.5rem;background:var(--off-white);border-radius:var(--radius);padding:1rem;"></div>
+    <button class="btn-primary" style="width:100%;justify-content:center;" onclick="closeModal()">¡Seguir comprando! 🐀</button>
+  </div>
+</div>
+
+<!-- ══════════════════════ TOAST ══════════════════════ -->
+<div class="toast" id="toast">✅ Producto añadido al carrito</div>
+
+<!-- ══════════════════════ AUTH MODAL ══════════════════════ -->
+<div class="auth-overlay" id="authOverlay" onclick="closeAuthModal()"></div>
+<div class="auth-modal" id="authModal">
+  <button class="auth-close" onclick="closeAuthModal()">✕</button>
+
+  <div class="auth-logo">
+    <img src="RataCalva_logo.png" alt="Ratacalva FC" />
+    <div class="auth-logo-text">
+      <span>RATACALVA FC</span>
+      <span>Robert's · Tienda Oficial</span>
+    </div>
+  </div>
+
+  <div class="auth-tabs">
+    <button class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')">Iniciar Sesión</button>
+    <button class="auth-tab" id="tabRegister" onclick="switchAuthTab('register')">Registrarse</button>
+  </div>
+
+  <!-- LOGIN -->
+  <div class="auth-form active" id="formLogin">
+    <div class="auth-field">
+      <label>Email</label>
+      <input type="email" id="login-email" placeholder="tu@email.com" />
+    </div>
+    <div class="auth-field">
+      <label>Contraseña</label>
+      <div class="auth-password-wrap">
+        <input type="password" id="login-password" placeholder="••••••••" />
+        <button class="toggle-pw" onclick="togglePw('login-password', this)">👁</button>
+      </div>
+    </div>
+    <div class="auth-forgot"><a onclick="showForgot()">¿Olvidaste tu contraseña?</a></div>
+    <button class="auth-submit" onclick="handleLogin()">
+      <span>Entrar a la Tienda</span><span class="auth-arrow">→</span>
+    </button>
+    <div class="auth-divider"><span>o</span></div>
+    <p class="auth-switch-hint">¿No tienes cuenta? <a onclick="switchAuthTab('register')">Regístrate gratis</a></p>
+  </div>
+
+  <!-- REGISTER -->
+  <div class="auth-form" id="formRegister">
+    <div class="auth-fields-row">
+      <div class="auth-field">
+        <label>Nombre</label>
+        <input type="text" id="reg-name" placeholder="Tu nombre" />
+      </div>
+      <div class="auth-field">
+        <label>Apellido</label>
+        <input type="text" id="reg-surname" placeholder="Tu apellido" />
+      </div>
+    </div>
+    <div class="auth-field">
+      <label>Email</label>
+      <input type="email" id="reg-email" placeholder="tu@email.com" />
+    </div>
+    <div class="auth-field">
+      <label>Contraseña</label>
+      <div class="auth-password-wrap">
+        <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" oninput="checkPwStrength(this.value)" />
+        <button class="toggle-pw" onclick="togglePw('reg-password', this)">👁</button>
+      </div>
+      <div class="auth-pw-strength" id="pwStrength"></div>
+    </div>
+    <div class="auth-field">
+      <label>Confirmar Contraseña</label>
+      <div class="auth-password-wrap">
+        <input type="password" id="reg-password2" placeholder="Repite tu contraseña" />
+        <button class="toggle-pw" onclick="togglePw('reg-password2', this)">👁</button>
+      </div>
+    </div>
+    <label class="auth-check">
+      <input type="checkbox" id="reg-terms" />
+      <span>Acepto los <a onclick="closeAuthModal();showPage('terminos')">Términos y Condiciones</a> y la <a onclick="closeAuthModal();showPage('privacidad')">Política de Privacidad</a></span>
+    </label>
+    <button class="auth-submit" onclick="handleRegister()">
+      <span>Crear Cuenta</span><span class="auth-arrow">→</span>
+    </button>
+    <p class="auth-switch-hint">¿Ya tienes cuenta? <a onclick="switchAuthTab('login')">Inicia sesión</a></p>
+  </div>
+
+  <!-- USER PANEL -->
+  <div class="auth-form" id="formUser">
+    <div class="auth-user-avatar" id="userAvatar">RC</div>
+    <div class="auth-user-name" id="userName">Usuario</div>
+    <div class="auth-user-email" id="userEmail">email@email.com</div>
+    <div class="auth-user-badge">⭐ Miembro Ratacalva FC</div>
+    <div class="auth-user-actions">
+      <button class="auth-user-btn" onclick="closeAuthModal();showPage('contacto')">📦 Mis Pedidos</button>
+      <button class="auth-user-btn logout" onclick="handleLogout()">🚪 Cerrar Sesión</button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
